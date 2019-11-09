@@ -1,4 +1,5 @@
 
+import java.awt.event.KeyEvent;
 import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 
@@ -69,6 +70,11 @@ public class Login extends javax.swing.JFrame {
         username.setToolTipText("Enter username.");
         username.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 5));
         username.setCaretColor(new java.awt.Color(255, 255, 255));
+        username.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                usernameKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -107,6 +113,11 @@ public class Login extends javax.swing.JFrame {
         password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordActionPerformed(evt);
+            }
+        });
+        password.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passwordKeyPressed(evt);
             }
         });
 
@@ -228,6 +239,37 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "INVALID USERNAME/PASSWORD");
         }
     }//GEN-LAST:event_jPanel4MouseClicked
+
+    private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            String pass = "noob";
+        String user = "noob";
+
+        if (this.password.getText().equals(pass) && username.getText().equals(user)) {
+            new Cashier().setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "INVALID USERNAME/PASSWORD");
+        }
+        }
+        
+    }//GEN-LAST:event_passwordKeyPressed
+
+    private void usernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usernameKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            String pass = "noob";
+        String user = "noob";
+
+        if (this.password.getText().equals(pass) && username.getText().equals(user)) {
+            new Cashier().setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "INVALID USERNAME/PASSWORD");
+        }
+        }
+    }//GEN-LAST:event_usernameKeyPressed
 
     /**
      * @param args the command line arguments
