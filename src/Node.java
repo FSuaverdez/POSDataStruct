@@ -13,53 +13,55 @@ public class Node {
     String productID;
     String productName;
     int itemCode;
-    int price;
+    double price;
     Node next;
 }
 
 class LinkedList {
 
     Node head = null;
+    
+    public void insert(String productID,String productName,int itemCode, double price) {
 
-    void insert(String productID, String productName,int itemCode, int price) {
-
-        Node temp = new Node();
-        temp = head;
-
-        if (head == null) {
-            head.productID = productID;
-            head.productName = productName;
-            head.itemCode = itemCode;
-            head.price = price;
-
-        } else {
-            while (temp.next != null) {
-                temp = temp.next;
-            }
-            temp = temp.next;
-            temp.productID = productID;
-            temp.productID = productName;
-            temp.itemCode = itemCode;
-            temp.price = price;
-
-        }
+       Node temp = new Node();
+       
+       temp.productID =productID;
+       temp.productName=productName;
+       temp.itemCode=itemCode;
+       temp.price= price;
+       temp.next=null;
+       
+       
+       if(head==null){
+           head = temp;
+       }
+       else{
+           Node temp2 = head;
+           while(temp2.next!=null){
+               temp2 = temp2.next;
+           }
+           temp2.next=temp;
+       }
 
     }
     
-    public int search(int itemCode){
-        int price = 0;
+    public double search(String ID){
+        double productPrice = 0;
         Node temp = new Node();
         temp = head;
-        if (head.itemCode == itemCode) {
-            price = head.itemCode;
-
-        } else {
-            while (temp.next.itemCode != itemCode) {
-                temp = temp.next;
-            }
-            price = temp.itemCode;
-
+            while(temp!=null){
+                if(temp.productID==ID){
+                    productPrice=temp.price;
+                    return productPrice;
+                    
+                }else{
+                    temp = temp.next;
+                }
+            
         }
-        return price;
+
+        
+        return productPrice;
     }
+    
 }

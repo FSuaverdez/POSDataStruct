@@ -1,7 +1,9 @@
 
 import java.awt.Color;
+import java.awt.print.PrinterException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 
 /*
@@ -9,7 +11,6 @@ import javax.swing.border.Border;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author asus
@@ -30,8 +31,38 @@ public class Cashier extends javax.swing.JFrame {
         friesScrollPane.getVerticalScrollBar().setUnitIncrement(20);
         riceMealsScrollPane.getVerticalScrollBar().setUnitIncrement(20);
         drinksScrollPane.getVerticalScrollBar().setUnitIncrement(20);
-        
+        receiptArea.setText(receipt);
+
+        list.insert("B01", "Classic Burger", 100001, 50.00);
+        list.insert("B02", "Cheese Burger", 100002, 60.00);
+        list.insert("B03", "Double Patty Burger", 100003, 120.00);
+        list.insert("B04", "Triple Patty Burger", 100004, 180.00);
+        list.insert("B05", "Chicken Burger", 100005, 50.00);
+        list.insert("B06", "Veggie Burger", 100006, 50.00);
+        list.insert("B07", "Egg n' Bacon Burger", 100007, 60.00);
+        list.insert("B08", "Supreme Burger", 100008, 60.00);
+        list.insert("F01", "Classic Fries", 200001, 30.00);
+        list.insert("F02", "Chunky Fries", 200002, 40.00);
+        list.insert("F03", "ShoeString Fries", 200003, 40.00);
+        list.insert("F04", "Sweet Potato Fries", 200004, 40.00);
+
+
     }
+    LinkedList list = new LinkedList();
+    double totalPrice=0;
+    double totalChange=0;
+    double classicBurgerPrice = 0;
+    double chickenBurgerPrice = 0;
+    double cheeseBurgerPrice = 0;
+    double veggieBurgerPrice = 0;
+    double doublePattyBurgerPrice = 0;
+    double eggBaconBurgerPrice = 0;
+    double triplePattyBurgerPrice = 0;
+    double supremeBurgerPrice = 0;
+    double classicFriesPrice = 0;
+    double chunkyFriesPrice = 0;
+    double shoestringFriesPrice = 0;
+    double sweetpotatoFriesPrice = 0;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -73,12 +104,12 @@ public class Cashier extends javax.swing.JFrame {
         jPanel21 = new javax.swing.JPanel();
         veggieBurgerSpinner = new javax.swing.JSpinner();
         chickenBurgerSpinner = new javax.swing.JSpinner();
-        jSpinner7 = new javax.swing.JSpinner();
-        jSpinner8 = new javax.swing.JSpinner();
+        eggBaconBurgerSpinner = new javax.swing.JSpinner();
+        supremeBurgerSpinner = new javax.swing.JSpinner();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        eggBaconBurgerSpinner = new javax.swing.JLabel();
-        supremeBurgerSpinner = new javax.swing.JLabel();
+        asfasf = new javax.swing.JLabel();
+        afafasfasfa = new javax.swing.JLabel();
         jPanel26 = new javax.swing.JPanel();
         jPanel27 = new javax.swing.JPanel();
         jPanel28 = new javax.swing.JPanel();
@@ -86,6 +117,18 @@ public class Cashier extends javax.swing.JFrame {
         friesScrollPane = new javax.swing.JScrollPane();
         friesPane = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        classicFriesSpinner = new javax.swing.JSpinner();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        chunkyFriesSpinner = new javax.swing.JSpinner();
+        jPanel11 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        shoeStringSpinner = new javax.swing.JSpinner();
+        sweetPotatoSpinner = new javax.swing.JSpinner();
+        jLabel22 = new javax.swing.JLabel();
         riceMealsScrollPane = new javax.swing.JScrollPane();
         riceMeals = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -93,12 +136,15 @@ public class Cashier extends javax.swing.JFrame {
         drinksPane = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        totalPriceField = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        ammountPaid = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        changeTextField = new javax.swing.JTextField();
+        calculateButton = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -140,20 +186,20 @@ public class Cashier extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(42, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(35, 35, 35))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 88, 203, -1));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 203, -1));
 
         jPanel14.setBackground(new java.awt.Color(0, 0, 0));
         jPanel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 5));
@@ -174,16 +220,16 @@ public class Cashier extends javax.swing.JFrame {
         jPanel14Layout.setHorizontalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
+                .addGap(55, 55, 55)
                 .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jPanel1.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 206, 203, -1));
@@ -206,17 +252,17 @@ public class Cashier extends javax.swing.JFrame {
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
                 .addComponent(jLabel3)
-                .addGap(22, 22, 22))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel15Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jPanel1.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 203, -1));
@@ -240,19 +286,19 @@ public class Cashier extends javax.swing.JFrame {
         jPanel16Layout.setHorizontalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel16Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addGap(42, 42, 42)
                 .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel16Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        jPanel1.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 434, -1, -1));
+        jPanel1.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 434, 200, -1));
 
         logOutButton.setBackground(new java.awt.Color(0, 0, 0));
         logOutButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 5));
@@ -309,6 +355,11 @@ public class Cashier extends javax.swing.JFrame {
 
         cheeseBurgerSpinner.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
         cheeseBurgerSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        cheeseBurgerSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                cheeseBurgerSpinnerStateChanged(evt);
+            }
+        });
         burgersPane.add(cheeseBurgerSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, 60, -1));
 
         classicBurgerSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
@@ -321,10 +372,20 @@ public class Cashier extends javax.swing.JFrame {
 
         doublePattyBurgerSpinner.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
         doublePattyBurgerSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        doublePattyBurgerSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                doublePattyBurgerSpinnerStateChanged(evt);
+            }
+        });
         burgersPane.add(doublePattyBurgerSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 620, 60, -1));
 
         triplePattyBurgerSpinner.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
         triplePattyBurgerSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        triplePattyBurgerSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                triplePattyBurgerSpinnerStateChanged(evt);
+            }
+        });
         burgersPane.add(triplePattyBurgerSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 830, 60, -1));
 
         jLabel6.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
@@ -405,18 +466,38 @@ public class Cashier extends javax.swing.JFrame {
 
         veggieBurgerSpinner.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
         veggieBurgerSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        veggieBurgerSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                veggieBurgerSpinnerStateChanged(evt);
+            }
+        });
         burgersPane.add(veggieBurgerSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 410, 60, -1));
 
         chickenBurgerSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        chickenBurgerSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                chickenBurgerSpinnerStateChanged(evt);
+            }
+        });
         burgersPane.add(chickenBurgerSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 60, -1));
 
-        jSpinner7.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
-        jSpinner7.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
-        burgersPane.add(jSpinner7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 620, 60, -1));
+        eggBaconBurgerSpinner.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
+        eggBaconBurgerSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        eggBaconBurgerSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                eggBaconBurgerSpinnerStateChanged(evt);
+            }
+        });
+        burgersPane.add(eggBaconBurgerSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 620, 60, -1));
 
-        jSpinner8.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
-        jSpinner8.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
-        burgersPane.add(jSpinner8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 830, 60, -1));
+        supremeBurgerSpinner.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
+        supremeBurgerSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        supremeBurgerSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                supremeBurgerSpinnerStateChanged(evt);
+            }
+        });
+        burgersPane.add(supremeBurgerSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 830, 60, -1));
 
         jLabel18.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
         jLabel18.setText("Chicken Burger");
@@ -426,13 +507,13 @@ public class Cashier extends javax.swing.JFrame {
         jLabel19.setText("Veggie Burger");
         burgersPane.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(464, 379, -1, -1));
 
-        eggBaconBurgerSpinner.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
-        eggBaconBurgerSpinner.setText("Egg n’ Bacon Burger");
-        burgersPane.add(eggBaconBurgerSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 589, -1, -1));
+        asfasf.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
+        asfasf.setText("Egg n’ Bacon Burger");
+        burgersPane.add(asfasf, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 589, -1, -1));
 
-        supremeBurgerSpinner.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
-        supremeBurgerSpinner.setText("Supreme Burger");
-        burgersPane.add(supremeBurgerSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(456, 799, -1, -1));
+        afafasfasfa.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
+        afafasfasfa.setText("Supreme Burger");
+        burgersPane.add(afafasfasfa, new org.netbeans.lib.awtextra.AbsoluteConstraints(456, 799, -1, -1));
 
         jPanel26.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
@@ -508,6 +589,98 @@ public class Cashier extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
         jLabel8.setText("FRIES");
 
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jLabel17.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
+        jLabel17.setText("Classic Fries");
+
+        classicFriesSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        classicFriesSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                classicFriesSpinnerStateChanged(evt);
+            }
+        });
+
+        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jLabel20.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
+        jLabel20.setText("Chunky Fries");
+
+        chunkyFriesSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        chunkyFriesSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                chunkyFriesSpinnerStateChanged(evt);
+            }
+        });
+
+        jPanel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jPanel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jLabel21.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
+        jLabel21.setText("ShoeString Fries");
+
+        shoeStringSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        shoeStringSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                shoeStringSpinnerStateChanged(evt);
+            }
+        });
+
+        sweetPotatoSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        sweetPotatoSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                sweetPotatoSpinnerStateChanged(evt);
+            }
+        });
+
+        jLabel22.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
+        jLabel22.setText("Sweet Potato Fries");
+
         javax.swing.GroupLayout friesPaneLayout = new javax.swing.GroupLayout(friesPane);
         friesPane.setLayout(friesPaneLayout);
         friesPaneLayout.setHorizontalGroup(
@@ -515,14 +688,88 @@ public class Cashier extends javax.swing.JFrame {
             .addGroup(friesPaneLayout.createSequentialGroup()
                 .addGap(263, 263, 263)
                 .addComponent(jLabel8)
-                .addContainerGap(300, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(friesPaneLayout.createSequentialGroup()
+                .addGap(87, 87, 87)
+                .addGroup(friesPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(friesPaneLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(classicFriesSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(friesPaneLayout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(friesPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel20)
+                        .addGroup(friesPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(friesPaneLayout.createSequentialGroup()
+                                .addGap(41, 41, 41)
+                                .addComponent(chunkyFriesSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(friesPaneLayout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel17))))
+                .addGroup(friesPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(friesPaneLayout.createSequentialGroup()
+                        .addGroup(friesPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(friesPaneLayout.createSequentialGroup()
+                                .addGroup(friesPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(friesPaneLayout.createSequentialGroup()
+                                        .addGap(199, 199, 199)
+                                        .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, friesPaneLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 31, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, friesPaneLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(friesPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel22)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, friesPaneLayout.createSequentialGroup()
+                                        .addComponent(sweetPotatoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(66, 66, 66)))))
+                        .addGap(128, 128, 128))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, friesPaneLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(friesPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, friesPaneLayout.createSequentialGroup()
+                                .addComponent(jLabel21)
+                                .addGap(138, 138, 138))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, friesPaneLayout.createSequentialGroup()
+                                .addComponent(shoeStringSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(188, 188, 188))))))
         );
         friesPaneLayout.setVerticalGroup(
             friesPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(friesPaneLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel8)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addGroup(friesPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(friesPaneLayout.createSequentialGroup()
+                        .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel21)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(shoeStringSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)
+                        .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel22)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(sweetPotatoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(friesPaneLayout.createSequentialGroup()
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel17)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(classicFriesSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(chunkyFriesSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         friesScrollPane.setViewportView(friesPane);
@@ -591,8 +838,8 @@ public class Cashier extends javax.swing.JFrame {
 
         jPanel1.add(drinksScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 670, 513));
 
-        jButton1.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        jButton1.setText("DONE");
+        jButton1.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        jButton1.setText("VOID");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -603,45 +850,82 @@ public class Cashier extends javax.swing.JFrame {
                 jButton1KeyPressed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 150, 100, 50));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 280, 110, 30));
 
-        jTextField1.setEditable(false);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        totalPriceField.setEditable(false);
+        totalPriceField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                totalPriceFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 230, 100, -1));
+        jPanel1.add(totalPriceField, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 170, 100, -1));
 
         jLabel14.setFont(new java.awt.Font("Bahnschrift", 1, 13)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("TOTAL PRICE:");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 210, -1, -1));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 150, -1, -1));
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        ammountPaid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                ammountPaidActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 110, 100, -1));
+        jPanel1.add(ammountPaid, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 230, 100, -1));
 
         jLabel15.setFont(new java.awt.Font("Bahnschrift", 1, 13)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("AMOUNT PAID");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 90, -1, -1));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 206, -1, 20));
 
         jLabel16.setFont(new java.awt.Font("Bahnschrift", 1, 13)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("CHANGE:");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 260, -1, -1));
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 270, -1, -1));
 
-        jTextField3.setEditable(false);
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        changeTextField.setEditable(false);
+        changeTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                changeTextFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 280, 100, -1));
+        jPanel1.add(changeTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 290, 100, -1));
+
+        calculateButton.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        calculateButton.setText("CALCULATE");
+        calculateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calculateButtonActionPerformed(evt);
+            }
+        });
+        calculateButton.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                calculateButtonKeyPressed(evt);
+            }
+        });
+        jPanel1.add(calculateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 90, 110, 40));
+
+        jButton4.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        jButton4.setText("PAY");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jButton4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButton4KeyPressed(evt);
+            }
+        });
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 220, 110, 30));
+
+        jButton2.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        jButton2.setText("PRINT RECEIPT");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 620, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 1280, 690));
 
@@ -698,28 +982,263 @@ public class Cashier extends javax.swing.JFrame {
 
     private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
         // TODO add your handling code here:
-        
-        
+
+
     }//GEN-LAST:event_jButton1KeyPressed
 
     private void classicBurgerSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_classicBurgerSpinnerStateChanged
         // TODO add your handling code here:
-        String test = classicBurgerSpinner.getValue().toString();
-        int test2= (int)classicBurgerSpinner.getValue();
-        receiptArea.setText(test + test2);
+
+        int qty = 0;
+        classicBurgerPrice = list.search("B01");
+        qty = (int) classicBurgerSpinner.getValue();
+        classicBurgerPrice = classicBurgerPrice * qty;
+
+
     }//GEN-LAST:event_classicBurgerSpinnerStateChanged
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void totalPriceFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalPriceFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_totalPriceFieldActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void ammountPaidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ammountPaidActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_ammountPaidActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void changeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+        
+    }//GEN-LAST:event_changeTextFieldActionPerformed
+    String receipt = "**************************************************\n*                          SUABURGERS                          *\n**************************************************\n";
+    private void calculateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateButtonActionPerformed
+        // TODO add your handling code here:
+
+        receiptArea.setText(receipt);
+        String classicBurgerReceipt = "";
+        String chickenBurgerReceipt = "";
+        String cheeseBurgerReceipt = "";
+        String veggieBurgerReceipt = "";
+        String doublePattyBurgerReceipt = "";
+        String triplePattyBurgerReceipt = "";
+        String eggBaconBurgerReceipt = "";
+        String supremeBurgerReceipt = "";
+        String classicFriesReceipt = "";
+        String chunkyFriesReceipt = "";
+        String shoestringFriesReceipt = "";
+        String sweetpotatoFriesReceipt = "";
+        totalPrice=classicBurgerPrice+chickenBurgerPrice+cheeseBurgerPrice+veggieBurgerPrice+doublePattyBurgerPrice+triplePattyBurgerPrice+eggBaconBurgerPrice+supremeBurgerPrice;
+        totalPrice= totalPrice+classicFriesPrice+chunkyFriesPrice+shoestringFriesPrice+sweetpotatoFriesPrice;
+        //receiptArea.setText("**************************************************\n");
+        //receiptArea.setText(receiptArea.getText() + "*                          SUABURGERS                          *\n");
+        //receiptArea.setText(receiptArea.getText() + "**************************************************\n");
+        if (classicBurgerPrice > 0) {
+            classicBurgerReceipt = "\nClassic Burger................................................" + classicBurgerPrice;
+            receiptArea.setText(receiptArea.getText() + classicBurgerReceipt);
+            classicBurgerSpinner.setValue(0);
+        }
+
+        if (chickenBurgerPrice > 0) {
+            chickenBurgerReceipt = "\nChicken Burger..............................................." + chickenBurgerPrice;
+            receiptArea.setText(receiptArea.getText() + chickenBurgerReceipt);
+            chickenBurgerSpinner.setValue(0);
+        }
+        
+        if (cheeseBurgerPrice > 0){
+            cheeseBurgerReceipt = "\nCheese Burger..............................................." + cheeseBurgerPrice;
+            receiptArea.setText(receiptArea.getText() + cheeseBurgerReceipt);
+            cheeseBurgerSpinner.setValue(0);
+        }
+        
+        if (veggieBurgerPrice > 0){
+            veggieBurgerReceipt = "\nVeggie Burger................................................." + veggieBurgerPrice;
+            receiptArea.setText(receiptArea.getText() + veggieBurgerReceipt);
+            veggieBurgerSpinner.setValue(0);
+        }
+        
+        if (doublePattyBurgerPrice > 0) {
+            doublePattyBurgerReceipt = "\nDouble Patty Burger......................................" + doublePattyBurgerPrice;
+            receiptArea.setText(receiptArea.getText() + doublePattyBurgerReceipt);
+            doublePattyBurgerSpinner.setValue(0);
+        }
+
+        if (triplePattyBurgerPrice > 0) {
+            triplePattyBurgerReceipt = "\nTriple Patty Burger........................................." + triplePattyBurgerPrice;
+            receiptArea.setText(receiptArea.getText() + triplePattyBurgerReceipt);
+            triplePattyBurgerSpinner.setValue(0);
+        }
+        
+        if (eggBaconBurgerPrice > 0) {
+            eggBaconBurgerReceipt = "\nEgg Bacon Burger........................................." + eggBaconBurgerPrice;
+            receiptArea.setText(receiptArea.getText() + eggBaconBurgerReceipt);
+            eggBaconBurgerSpinner.setValue(0);
+        }
+        
+        if (supremeBurgerPrice > 0) {
+            supremeBurgerReceipt = "\nSupreme Burger............................................" + supremeBurgerPrice;
+            receiptArea.setText(receiptArea.getText() + supremeBurgerReceipt);
+            supremeBurgerSpinner.setValue(0);
+        }
+        
+        if (classicFriesPrice > 0) {
+            classicFriesReceipt = "\nClassic Fries...................................................." + classicFriesPrice;
+            receiptArea.setText(receiptArea.getText() + classicFriesReceipt);
+            classicFriesSpinner.setValue(0);
+        }
+        
+        if (chunkyFriesPrice > 0) {
+            chunkyFriesReceipt = "\nChunky Fries...................................................." + chunkyFriesPrice;
+            receiptArea.setText(receiptArea.getText() + chunkyFriesReceipt);
+            chunkyFriesSpinner.setValue(0);
+        }
+        
+        if (shoestringFriesPrice > 0) {
+            shoestringFriesReceipt = "\nShoeString Fries............................................." + shoestringFriesPrice;
+            receiptArea.setText(receiptArea.getText() + shoestringFriesReceipt);
+            shoeStringSpinner.setValue(0);
+        }
+        
+        if (sweetpotatoFriesPrice > 0) {
+            sweetpotatoFriesReceipt = "\nSweet Potato Fries........................................." + sweetpotatoFriesPrice;
+            receiptArea.setText(receiptArea.getText() + sweetpotatoFriesReceipt);
+            sweetPotatoSpinner.setValue(0);
+        }
+        
+       String totalPriceReceipt="\n\nTotal Amount..................................................."+totalPrice;
+       receiptArea.setText(receiptArea.getText()+totalPriceReceipt);
+       String totalPriceFieldText = Double.toString(totalPrice);
+       totalPriceField.setText(totalPriceFieldText);
+       
+
+
+    }//GEN-LAST:event_calculateButtonActionPerformed
+
+    private void calculateButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calculateButtonKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_calculateButtonKeyPressed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        totalChange=Double.parseDouble(ammountPaid.getText())-totalPrice;
+        String ammoundPaidReceipt="\nAmmount Paid................................................"+Double.parseDouble(ammountPaid.getText());
+        String totalChangeReceipt="\nChange............................................. ..............."+totalChange;
+        receiptArea.setText(receiptArea.getText()+ammoundPaidReceipt);
+        receiptArea.setText(receiptArea.getText()+totalChangeReceipt);
+        String totalChangeText=Double.toString(totalChange);
+        changeTextField.setText(totalChangeText);
+        
+        ammountPaid.setText("");
+        
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton4KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4KeyPressed
+
+    private void cheeseBurgerSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_cheeseBurgerSpinnerStateChanged
+        // TODO add your handling code here:
+        
+        int qty = 0;
+        cheeseBurgerPrice = list.search("B02");
+        qty = (int) cheeseBurgerSpinner.getValue();
+        cheeseBurgerPrice = cheeseBurgerPrice * qty;
+        
+        
+    }//GEN-LAST:event_cheeseBurgerSpinnerStateChanged
+
+    private void chickenBurgerSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_chickenBurgerSpinnerStateChanged
+        // TODO add your handling code here:
+        
+        int qty = 0;
+        chickenBurgerPrice = list.search("B05");
+        qty = (int) chickenBurgerSpinner.getValue();
+        chickenBurgerPrice = chickenBurgerPrice * qty;
+       
+        
+        
+    }//GEN-LAST:event_chickenBurgerSpinnerStateChanged
+
+    private void veggieBurgerSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_veggieBurgerSpinnerStateChanged
+        // TODO add your handling code here:
+         int qty = 0;
+        veggieBurgerPrice = list.search("B06");
+        qty = (int) veggieBurgerSpinner.getValue();
+        veggieBurgerPrice = veggieBurgerPrice * qty;
+    }//GEN-LAST:event_veggieBurgerSpinnerStateChanged
+
+    private void doublePattyBurgerSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_doublePattyBurgerSpinnerStateChanged
+        // TODO add your handling code here:
+         int qty = 0;
+        doublePattyBurgerPrice = list.search("B03");
+        qty = (int) doublePattyBurgerSpinner.getValue();
+        doublePattyBurgerPrice = doublePattyBurgerPrice * qty;
+    }//GEN-LAST:event_doublePattyBurgerSpinnerStateChanged
+
+    private void eggBaconBurgerSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_eggBaconBurgerSpinnerStateChanged
+        // TODO add your handling code here:
+         int qty = 0;
+        eggBaconBurgerPrice = list.search("B07");
+        qty = (int) eggBaconBurgerSpinner.getValue();
+        eggBaconBurgerPrice = eggBaconBurgerPrice * qty;
+    }//GEN-LAST:event_eggBaconBurgerSpinnerStateChanged
+
+    private void triplePattyBurgerSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_triplePattyBurgerSpinnerStateChanged
+        // TODO add your handling code here:
+         int qty = 0;
+        triplePattyBurgerPrice = list.search("B04");
+        qty = (int) triplePattyBurgerSpinner.getValue();
+        triplePattyBurgerPrice = triplePattyBurgerPrice * qty;
+    }//GEN-LAST:event_triplePattyBurgerSpinnerStateChanged
+
+    private void supremeBurgerSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_supremeBurgerSpinnerStateChanged
+        // TODO add your handling code here:
+         int qty = 0;
+        supremeBurgerPrice = list.search("B08");
+        qty = (int) supremeBurgerSpinner.getValue();
+        supremeBurgerPrice = supremeBurgerPrice * qty;
+    }//GEN-LAST:event_supremeBurgerSpinnerStateChanged
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try {
+            // TODO add your handling code here:
+
+            receiptArea.print();
+        } catch (PrinterException ex) {
+            Logger.getLogger(Cashier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void classicFriesSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_classicFriesSpinnerStateChanged
+        // TODO add your handling code here:
+        int qty = 0;
+        classicFriesPrice = list.search("F01");
+        qty = (int) classicFriesSpinner.getValue();
+        classicFriesPrice = classicFriesPrice * qty;
+    }//GEN-LAST:event_classicFriesSpinnerStateChanged
+
+    private void chunkyFriesSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_chunkyFriesSpinnerStateChanged
+        // TODO add your handling code here:
+        int qty = 0;
+        chunkyFriesPrice = list.search("F02");
+        qty = (int) chunkyFriesSpinner.getValue();
+        chunkyFriesPrice = chunkyFriesPrice * qty;
+    }//GEN-LAST:event_chunkyFriesSpinnerStateChanged
+
+    private void shoeStringSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_shoeStringSpinnerStateChanged
+        // TODO add your handling code here:
+        int qty = 0;
+        shoestringFriesPrice = list.search("F03");
+        qty = (int) shoeStringSpinner.getValue();
+        shoestringFriesPrice = shoestringFriesPrice * qty;
+    }//GEN-LAST:event_shoeStringSpinnerStateChanged
+
+    private void sweetPotatoSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sweetPotatoSpinnerStateChanged
+        // TODO add your handling code here:
+        int qty = 0;
+        sweetpotatoFriesPrice = list.search("F04");
+        qty = (int) sweetPotatoSpinner.getValue();
+        sweetpotatoFriesPrice = sweetpotatoFriesPrice * qty;
+    }//GEN-LAST:event_sweetPotatoSpinnerStateChanged
 
     /**
      * @param args the command line arguments
@@ -757,18 +1276,27 @@ public class Cashier extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel afafasfasfa;
+    private javax.swing.JTextField ammountPaid;
+    private javax.swing.JLabel asfasf;
     private javax.swing.JScrollPane burgerScrollPane;
     private javax.swing.JPanel burgersPane;
+    private javax.swing.JButton calculateButton;
+    private javax.swing.JTextField changeTextField;
     private javax.swing.JSpinner cheeseBurgerSpinner;
     private javax.swing.JSpinner chickenBurgerSpinner;
+    private javax.swing.JSpinner chunkyFriesSpinner;
     private javax.swing.JSpinner classicBurgerSpinner;
+    private javax.swing.JSpinner classicFriesSpinner;
     private javax.swing.JSpinner doublePattyBurgerSpinner;
     private javax.swing.JPanel drinksPane;
     private javax.swing.JScrollPane drinksScrollPane;
-    private javax.swing.JLabel eggBaconBurgerSpinner;
+    private javax.swing.JSpinner eggBaconBurgerSpinner;
     private javax.swing.JPanel friesPane;
     private javax.swing.JScrollPane friesScrollPane;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -777,9 +1305,13 @@ public class Cashier extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -796,10 +1328,7 @@ public class Cashier extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
-    private javax.swing.JPanel jPanel18;
-    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel27;
@@ -813,16 +1342,14 @@ public class Cashier extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSpinner jSpinner7;
-    private javax.swing.JSpinner jSpinner8;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JPanel logOutButton;
     private javax.swing.JTextArea receiptArea;
     private javax.swing.JPanel riceMeals;
     private javax.swing.JScrollPane riceMealsScrollPane;
-    private javax.swing.JLabel supremeBurgerSpinner;
+    private javax.swing.JSpinner shoeStringSpinner;
+    private javax.swing.JSpinner supremeBurgerSpinner;
+    private javax.swing.JSpinner sweetPotatoSpinner;
+    private javax.swing.JTextField totalPriceField;
     private javax.swing.JSpinner triplePattyBurgerSpinner;
     private javax.swing.JSpinner veggieBurgerSpinner;
     // End of variables declaration//GEN-END:variables
