@@ -178,6 +178,12 @@ public class Cashier extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
         discountComboBox = new javax.swing.JComboBox<>();
+        manualOrderIDCode = new javax.swing.JTextField();
+        manualOrderSpinner = new javax.swing.JSpinner();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -206,7 +212,7 @@ public class Cashier extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(42, Short.MAX_VALUE)
+                .addContainerGap(29, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(35, 35, 35))
         );
@@ -218,7 +224,7 @@ public class Cashier extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 203, -1));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 190, -1));
 
         jPanel14.setBackground(new java.awt.Color(0, 0, 0));
         jPanel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 5));
@@ -242,7 +248,7 @@ public class Cashier extends javax.swing.JFrame {
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addComponent(jLabel2)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,7 +258,7 @@ public class Cashier extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 203, -1));
+        jPanel1.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 190, -1));
 
         jPanel15.setBackground(new java.awt.Color(0, 0, 0));
         jPanel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 5));
@@ -276,7 +282,7 @@ public class Cashier extends javax.swing.JFrame {
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel3)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,7 +292,7 @@ public class Cashier extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 203, -1));
+        jPanel1.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 190, -1));
 
         jPanel16.setBackground(new java.awt.Color(0, 0, 0));
         jPanel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 5));
@@ -311,7 +317,7 @@ public class Cashier extends javax.swing.JFrame {
             .addGroup(jPanel16Layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jLabel4)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,7 +327,7 @@ public class Cashier extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 200, -1));
+        jPanel1.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 190, -1));
 
         logOutButton.setBackground(new java.awt.Color(0, 0, 0));
         logOutButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 5));
@@ -342,26 +348,28 @@ public class Cashier extends javax.swing.JFrame {
         logOutButton.setLayout(logOutButtonLayout);
         logOutButtonLayout.setHorizontalGroup(
             logOutButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, logOutButtonLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addContainerGap())
-        );
-        logOutButtonLayout.setVerticalGroup(
-            logOutButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(logOutButtonLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel5)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+        logOutButtonLayout.setVerticalGroup(
+            logOutButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, logOutButtonLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addContainerGap())
+        );
 
-        jPanel1.add(logOutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 600, -1, -1));
+        jPanel1.add(logOutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 600, 90, -1));
+
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         receiptArea.setColumns(20);
         receiptArea.setRows(5);
         jScrollPane1.setViewportView(receiptArea);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 380, 300, 270));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 380, 340, 270));
 
         burgerScrollPane.setBackground(new java.awt.Color(0, 0, 0));
         burgerScrollPane.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0), 5));
@@ -602,7 +610,7 @@ public class Cashier extends javax.swing.JFrame {
 
         burgerScrollPane.setViewportView(burgersPane);
 
-        jPanel1.add(burgerScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 670, 513));
+        jPanel1.add(burgerScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 670, 513));
 
         friesScrollPane.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0), 5));
         friesScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -796,7 +804,7 @@ public class Cashier extends javax.swing.JFrame {
 
         friesScrollPane.setViewportView(friesPane);
 
-        jPanel1.add(friesScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 670, 513));
+        jPanel1.add(friesScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 670, 513));
 
         riceMealsScrollPane.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0), 5));
         riceMealsScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -921,7 +929,7 @@ public class Cashier extends javax.swing.JFrame {
 
         riceMealsScrollPane.setViewportView(riceMeals);
 
-        jPanel1.add(riceMealsScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 670, 513));
+        jPanel1.add(riceMealsScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 670, 513));
 
         drinksScrollPane.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0), 5));
         drinksScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -1073,7 +1081,7 @@ public class Cashier extends javax.swing.JFrame {
 
         drinksScrollPane.setViewportView(drinksPane);
 
-        jPanel1.add(drinksScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 670, 513));
+        jPanel1.add(drinksScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 670, 513));
 
         jButton1.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         jButton1.setText("VOID");
@@ -1087,7 +1095,7 @@ public class Cashier extends javax.swing.JFrame {
                 jButton1KeyPressed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 340, 70, 23));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 330, 70, 30));
 
         totalPriceField.setEditable(false);
         totalPriceField.addActionListener(new java.awt.event.ActionListener() {
@@ -1095,29 +1103,29 @@ public class Cashier extends javax.swing.JFrame {
                 totalPriceFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(totalPriceField, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 220, 100, -1));
+        jPanel1.add(totalPriceField, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 220, 100, -1));
 
         jLabel14.setFont(new java.awt.Font("Bahnschrift", 1, 13)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("DISCOUNT:");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 150, -1, -1));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 150, -1, -1));
 
         ammountPaid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ammountPaidActionPerformed(evt);
             }
         });
-        jPanel1.add(ammountPaid, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 280, 100, -1));
+        jPanel1.add(ammountPaid, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 280, 100, -1));
 
         jLabel15.setFont(new java.awt.Font("Bahnschrift", 1, 13)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("AMOUNT PAID");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 260, -1, 20));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 260, -1, 20));
 
         jLabel16.setFont(new java.awt.Font("Bahnschrift", 1, 13)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("CHANGE:");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 320, -1, -1));
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 320, -1, -1));
 
         changeTextField.setEditable(false);
         changeTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -1125,7 +1133,7 @@ public class Cashier extends javax.swing.JFrame {
                 changeTextFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(changeTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 340, 100, -1));
+        jPanel1.add(changeTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 340, 100, -1));
 
         calculateButton.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         calculateButton.setText("CALCULATE");
@@ -1139,7 +1147,7 @@ public class Cashier extends javax.swing.JFrame {
                 calculateButtonKeyPressed(evt);
             }
         });
-        jPanel1.add(calculateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 220, 110, -1));
+        jPanel1.add(calculateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 210, 110, 40));
 
         jButton4.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         jButton4.setText("PAY");
@@ -1154,7 +1162,7 @@ public class Cashier extends javax.swing.JFrame {
                 jButton4KeyPressed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 280, 70, 23));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 270, 70, 30));
 
         jButton2.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         jButton2.setText("PRINT RECEIPT");
@@ -1163,12 +1171,12 @@ public class Cashier extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 670, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 670, -1, -1));
 
         jLabel23.setFont(new java.awt.Font("Bahnschrift", 1, 13)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("TOTAL PRICE:");
-        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 200, -1, -1));
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 200, -1, -1));
 
         discountComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Senior Citizen", "PWD" }));
         discountComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -1176,7 +1184,41 @@ public class Cashier extends javax.swing.JFrame {
                 discountComboBoxActionPerformed(evt);
             }
         });
-        jPanel1.add(discountComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 170, 100, -1));
+        jPanel1.add(discountComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 170, 100, -1));
+
+        manualOrderIDCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manualOrderIDCodeActionPerformed(evt);
+            }
+        });
+        jPanel1.add(manualOrderIDCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 100, 30));
+
+        manualOrderSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jPanel1.add(manualOrderSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, 50, 30));
+
+        jLabel33.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel33.setText("MANUAL ORDER");
+        jPanel1.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, -1, -1));
+
+        jLabel34.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel34.setText("QTY:");
+        jPanel1.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 100, -1, -1));
+
+        jLabel35.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel35.setText("ITEM CODE:");
+        jPanel1.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, -1, -1));
+
+        jButton3.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        jButton3.setText("ADD");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 90, 90, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 730));
 
@@ -1343,13 +1385,14 @@ public class Cashier extends javax.swing.JFrame {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_changeTextFieldActionPerformed
-    String receipt = "**************************************************"
+    String receipt = "***************************************************************"
             + "\n                           SUABURGERS"
-            + "\n**************************************************\n";
+            + "\n***************************************************************\n";
 
     private void calculateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateButtonActionPerformed
         // TODO add your handling code here:
-        if (pending == false) {
+        changeTextField.setText("");
+        if (pending == false || ((pending ==true) && totalPrice==0)) {
             pending = true;
             receiptArea.setText(receipt);
             String classicBurgerReceipt;
@@ -1381,137 +1424,137 @@ public class Cashier extends javax.swing.JFrame {
             //receiptArea.setText(receiptArea.getText() + "*                          SUABURGERS                          *\n");
             //receiptArea.setText(receiptArea.getText() + "**************************************************\n");
             if (classicBurgerPrice > 0) {
-                classicBurgerReceipt = "\nClassic Burger................................................" + classicBurgerPrice;
+                classicBurgerReceipt = "\nClassic Burger\t\t\t" + classicBurgerPrice;
                 receiptArea.setText(receiptArea.getText() + classicBurgerReceipt);
                 classicBurgerSpinner.setValue(0);
             }
 
             if (chickenBurgerPrice > 0) {
-                chickenBurgerReceipt = "\nChicken Burger..............................................." + chickenBurgerPrice;
+                chickenBurgerReceipt = "\nChicken Burger\t\t\t" + chickenBurgerPrice;
                 receiptArea.setText(receiptArea.getText() + chickenBurgerReceipt);
                 chickenBurgerSpinner.setValue(0);
             }
 
             if (cheeseBurgerPrice > 0) {
-                cheeseBurgerReceipt = "\nCheese Burger..............................................." + cheeseBurgerPrice;
+                cheeseBurgerReceipt = "\nCheese Burger\t\t\t" + cheeseBurgerPrice;
                 receiptArea.setText(receiptArea.getText() + cheeseBurgerReceipt);
                 cheeseBurgerSpinner.setValue(0);
             }
 
             if (veggieBurgerPrice > 0) {
-                veggieBurgerReceipt = "\nVeggie Burger................................................." + veggieBurgerPrice;
+                veggieBurgerReceipt = "\nVeggie Burger\t\t\t" + veggieBurgerPrice;
                 receiptArea.setText(receiptArea.getText() + veggieBurgerReceipt);
                 veggieBurgerSpinner.setValue(0);
             }
 
             if (doublePattyBurgerPrice > 0) {
-                doublePattyBurgerReceipt = "\nDouble Patty Burger......................................" + doublePattyBurgerPrice;
+                doublePattyBurgerReceipt = "\nDouble Patty Burger\t\t" + doublePattyBurgerPrice;
                 receiptArea.setText(receiptArea.getText() + doublePattyBurgerReceipt);
                 doublePattyBurgerSpinner.setValue(0);
             }
 
             if (triplePattyBurgerPrice > 0) {
-                triplePattyBurgerReceipt = "\nTriple Patty Burger........................................." + triplePattyBurgerPrice;
+                triplePattyBurgerReceipt = "\nTriple Patty Burger\t\t" + triplePattyBurgerPrice;
                 receiptArea.setText(receiptArea.getText() + triplePattyBurgerReceipt);
                 triplePattyBurgerSpinner.setValue(0);
             }
 
             if (eggBaconBurgerPrice > 0) {
-                eggBaconBurgerReceipt = "\nEgg Bacon Burger........................................." + eggBaconBurgerPrice;
+                eggBaconBurgerReceipt = "\nEgg Bacon Burger\t\t" + eggBaconBurgerPrice;
                 receiptArea.setText(receiptArea.getText() + eggBaconBurgerReceipt);
                 eggBaconBurgerSpinner.setValue(0);
             }
 
             if (supremeBurgerPrice > 0) {
-                supremeBurgerReceipt = "\nSupreme Burger............................................" + supremeBurgerPrice;
+                supremeBurgerReceipt = "\nSupreme Burger\t\t" + supremeBurgerPrice;
                 receiptArea.setText(receiptArea.getText() + supremeBurgerReceipt);
                 supremeBurgerSpinner.setValue(0);
             }
 
             if (classicFriesPrice > 0) {
-                classicFriesReceipt = "\nClassic Fries...................................................." + classicFriesPrice;
+                classicFriesReceipt = "\nClassic Fries\t\t\t" + classicFriesPrice;
                 receiptArea.setText(receiptArea.getText() + classicFriesReceipt);
                 classicFriesSpinner.setValue(0);
             }
 
             if (chunkyFriesPrice > 0) {
-                chunkyFriesReceipt = "\nChunky Fries...................................................." + chunkyFriesPrice;
+                chunkyFriesReceipt = "\nChunky Fries\t\t\t" + chunkyFriesPrice;
                 receiptArea.setText(receiptArea.getText() + chunkyFriesReceipt);
                 chunkyFriesSpinner.setValue(0);
             }
 
             if (shoestringFriesPrice > 0) {
-                shoestringFriesReceipt = "\nShoeString Fries............................................." + shoestringFriesPrice;
+                shoestringFriesReceipt = "\nShoeString Fries\t\t" + shoestringFriesPrice;
                 receiptArea.setText(receiptArea.getText() + shoestringFriesReceipt);
                 shoeStringSpinner.setValue(0);
             }
 
             if (sweetpotatoFriesPrice > 0) {
-                sweetpotatoFriesReceipt = "\nSweet Potato Fries........................................." + sweetpotatoFriesPrice;
+                sweetpotatoFriesReceipt = "\nSweet Potato Fries\t\t" + sweetpotatoFriesPrice;
                 receiptArea.setText(receiptArea.getText() + sweetpotatoFriesReceipt);
                 sweetPotatoSpinner.setValue(0);
             }
 
             if (burgerSteakPrice > 0) {
-                burgSteakReceipt = "\nBurger Steak..................................................." + burgerSteakPrice;
+                burgSteakReceipt = "\nBurger Steak\t\t\t" + burgerSteakPrice;
                 receiptArea.setText(receiptArea.getText() + burgSteakReceipt);
                 burgerSteakSpinner.setValue(0);
             }
 
             if (burgerSteak2Price > 0) {
-                burgSteak2Receipt = "\n2 pcs. Burger Steak......................................." + burgerSteak2Price;
+                burgSteak2Receipt = "\n2 pcs. Burger Steak\t\t" + burgerSteak2Price;
                 receiptArea.setText(receiptArea.getText() + burgSteak2Receipt);
                 burgerSteakSpinner2.setValue(0);
             }
 
             if (burgSteakCMPrice > 0) {
-                burgSteakCMReceipt = "\nBurger Steak Combo Meal.........................." + burgSteakCMPrice;
+                burgSteakCMReceipt = "\nBurger Steak Combo Meal\t\t" + burgSteakCMPrice;
                 receiptArea.setText(receiptArea.getText() + burgSteakCMReceipt);
                 burgSteakCMSpinner.setValue(0);
             }
 
             if (burgSteak2CMPrice > 0) {
-                burgSteakCM2Receipt = "\n2 pcs. Burger Steak Combo Meal.............." + burgSteak2CMPrice;
+                burgSteakCM2Receipt = "\n2pc BurgSteak Combo Meal\t\t" + burgSteak2CMPrice;
                 receiptArea.setText(receiptArea.getText() + burgSteakCM2Receipt);
                 burgSteakCMSpinner2.setValue(0);
             }
 
             if (regularCokePrice > 0) {
-                regularCokeReceipt = "\nRegular Coke................................................." + regularCokePrice;
+                regularCokeReceipt = "\nRegular Coke\t\t\t" + regularCokePrice;
                 receiptArea.setText(receiptArea.getText() + regularCokeReceipt);
                 regularCokeSpinner.setValue(0);
             }
             if (largeCokePrice > 0) {
-                largeCokeReceipt = "\nLarge Coke....................................................." + largeCokePrice;
+                largeCokeReceipt = "\nLarge Coke\t\t\t" + largeCokePrice;
                 receiptArea.setText(receiptArea.getText() + largeCokeReceipt);
                 largeCokeSpinner.setValue(0);
             }
             if (regularIcedTeaPrice > 0) {
-                regularIcedTeaReceipt = "\nRegular Iced Tea..........................................." + regularIcedTeaPrice;
+                regularIcedTeaReceipt = "\nRegular Iced Tea\t\t" + regularIcedTeaPrice;
                 receiptArea.setText(receiptArea.getText() + regularIcedTeaReceipt);
                 regularIcedTeaSpinner.setValue(0);
             }
             if (largeIcedTeaPrice > 0) {
-                largeIcedTeaReceipt = "\nLarge Iced Tea..............................................." + largeIcedTeaPrice;
+                largeIcedTeaReceipt = "\nLarge Iced Tea\t\t\t" + largeIcedTeaPrice;
                 receiptArea.setText(receiptArea.getText() + largeIcedTeaReceipt);
                 largeIcedTeaSpinner.setValue(0);
             }
 
             if (bottomlessIcedTeaPrice > 0) {
-                bottomlessIcedTeaReceipt = "\nBottomless Iced Tea...................................." + bottomlessIcedTeaPrice;
+                bottomlessIcedTeaReceipt = "\nBottomless Iced Tea\t\t" + bottomlessIcedTeaPrice;
                 receiptArea.setText(receiptArea.getText() + bottomlessIcedTeaReceipt);
                 bottomlessIcedTeaSpinner.setValue(0);
             }
 
             if (discountComboBox.getSelectedIndex() == 1 || discountComboBox.getSelectedIndex() == 2) {
                 totalPrice = totalPrice - (totalPrice * .20);
-                String totalPriceReceipt = "\n\nTotal Amount  (20%)Discount......................." + totalPrice;
+                String totalPriceReceipt = "\n\nTotal Amount (20%)Discount\t\t" + totalPrice;
                 receiptArea.setText(receiptArea.getText() + totalPriceReceipt);
                 String totalPriceFieldText = Double.toString(totalPrice);
                 totalPriceField.setText(totalPriceFieldText);
                 discountComboBox.setSelectedIndex(0);
             } else {
-                String totalPriceReceipt = "\n\nTotal Amount..............................................." + totalPrice;
+                String totalPriceReceipt = "\n\nTotal Amount\t\t\t" + totalPrice;
                 receiptArea.setText(receiptArea.getText() + totalPriceReceipt);
                 String totalPriceFieldText = Double.toString(totalPrice);
                 totalPriceField.setText(totalPriceFieldText);
@@ -1535,18 +1578,27 @@ public class Cashier extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-
-        pending = false;
-        totalChange = Double.parseDouble(ammountPaid.getText()) - totalPrice;
-        String ammoundPaidReceipt = "\nAmmount Paid................................................" + Double.parseDouble(ammountPaid.getText());
-        String totalChangeReceipt = "\nChange............................................................." + totalChange;
-        receiptArea.setText(receiptArea.getText() + ammoundPaidReceipt);
-        receiptArea.setText(receiptArea.getText() + totalChangeReceipt);
-        String totalChangeText = Double.toString(totalChange);
-        changeTextField.setText(totalChangeText);
-        totalPriceField.setText("");
-
-        ammountPaid.setText("");
+        double test=0;
+        if(pending){
+           test = Double.parseDouble(ammountPaid.getText());
+        }
+        
+        if(totalPrice>test){
+            JOptionPane.showMessageDialog(null, "ERROR: Ammount Paid is less than Total Price\nPlease Try again with the right ammount.");
+        }else{
+            pending = false;
+            totalChange = Double.parseDouble(ammountPaid.getText()) - totalPrice;
+            String ammoundPaidReceipt = "\nAmmount Paid\t\t\t" + Double.parseDouble(ammountPaid.getText());
+            String totalChangeReceipt = "\nChange\t\t\t" + totalChange;
+            receiptArea.setText(receiptArea.getText() + ammoundPaidReceipt);
+            receiptArea.setText(receiptArea.getText() + totalChangeReceipt);
+            String totalChangeText = Double.toString(totalChange);
+            changeTextField.setText(totalChangeText);
+            totalPriceField.setText("");
+            
+            ammountPaid.setText("");
+        }
+        
 
 
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -1728,11 +1780,25 @@ public class Cashier extends javax.swing.JFrame {
 
     private void bottomlessIcedTeaSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_bottomlessIcedTeaSpinnerStateChanged
         // TODO add your handling code here:
-        int qty = 0;
+        int qty;
         bottomlessIcedTeaPrice = list.search("D5");
         qty = (int) bottomlessIcedTeaSpinner.getValue();
         bottomlessIcedTeaPrice = bottomlessIcedTeaPrice * qty;
     }//GEN-LAST:event_bottomlessIcedTeaSpinnerStateChanged
+
+    private void manualOrderIDCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manualOrderIDCodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_manualOrderIDCodeActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        int idCode=Integer.parseInt(manualOrderIDCode.getText());
+        int qty = (int) manualOrderSpinner.getValue();
+        
+        receiptArea.setText(receiptArea.getText() + "\nTry\t\t\t 123123");
+        
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1796,6 +1862,7 @@ public class Cashier extends javax.swing.JFrame {
     private javax.swing.JScrollPane friesScrollPane;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1823,6 +1890,9 @@ public class Cashier extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1859,6 +1929,8 @@ public class Cashier extends javax.swing.JFrame {
     private javax.swing.JSpinner largeCokeSpinner;
     private javax.swing.JSpinner largeIcedTeaSpinner;
     private javax.swing.JPanel logOutButton;
+    private javax.swing.JTextField manualOrderIDCode;
+    private javax.swing.JSpinner manualOrderSpinner;
     private javax.swing.JTextArea receiptArea;
     private javax.swing.JSpinner regularCokeSpinner;
     private javax.swing.JSpinner regularIcedTeaSpinner;
