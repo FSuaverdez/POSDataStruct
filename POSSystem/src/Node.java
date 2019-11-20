@@ -63,3 +63,19 @@ class LinkedList {
 
 }
 
+class NodeT {
+    String productID;
+    String productName;
+    int itemCode;
+    double price;
+    NodeT left;
+    NodeT right;
+
+    public NodeT(String productID, String productName, int itemCode, double price) {
+        this.productID = productID;
+        this.productName = productName;
+        this.itemCode = itemCode;
+        this.price = price;
+    }
+
+}

@@ -24,7 +24,8 @@ public class Cashier extends javax.swing.JFrame {
         riceMealsScrollPane.getVerticalScrollBar().setUnitIncrement(20);
         drinksScrollPane.getVerticalScrollBar().setUnitIncrement(20);
         receiptArea.setText(receipt);
-
+        
+        
         list.insert("B01", "Classic Burger", 100001, 50.00);
         list.insert("B02", "Cheese Burger", 100002, 60.00);
         list.insert("B03", "Double Patty Burger", 100003, 120.00);
@@ -184,6 +185,10 @@ public class Cashier extends javax.swing.JFrame {
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        cancelOrderIDCode = new javax.swing.JTextField();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -1212,13 +1217,39 @@ public class Cashier extends javax.swing.JFrame {
         jPanel1.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, -1, -1));
 
         jButton3.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        jButton3.setText("ADD");
+        jButton3.setText("CANCEL");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 90, 90, 30));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 90, 100, 30));
+
+        jLabel36.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel36.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel36.setText("CANCEL ORDER");
+        jPanel1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 50, -1, -1));
+
+        jLabel37.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel37.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel37.setText("ITEM CODE:");
+        jPanel1.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 100, -1, -1));
+
+        cancelOrderIDCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelOrderIDCodeActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cancelOrderIDCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 90, 100, 30));
+
+        jButton5.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        jButton5.setText("ADD");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 90, 90, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 730));
 
@@ -1273,9 +1304,9 @@ public class Cashier extends javax.swing.JFrame {
         // TODO add your handling code here:
         JOptionPane jop = new JOptionPane();
         jop.setMessageType(JOptionPane.PLAIN_MESSAGE);
-        
+
         JDialog dialog = jop.createDialog(null, "Insert Flash Drive");
-        
+
         dialog.setSize(400, 150);
         dialog.setLocationRelativeTo(null);
         // Set a 2 second timer
@@ -1288,8 +1319,8 @@ public class Cashier extends javax.swing.JFrame {
                     boolean[] isDrive = new boolean[letters.length];
                     String text = "";
                     boolean stop = false;
-                    int j=15;
-                    jop.setMessage("Insert Flash Drive that contains void key.\nExiting in "+ j + " seconds.");
+                    int j = 15;
+                    jop.setMessage("Insert Flash Drive that contains void key.\nExiting in " + j + " seconds.");
                     // init the file objects and the initial drive state
                     for (int i = 0; i < letters.length; ++i) {
                         drives[i] = new File(letters[i] + ":/");
@@ -1297,11 +1328,9 @@ public class Cashier extends javax.swing.JFrame {
                         isDrive[i] = drives[i].canRead();
                     }
 
-
-
                     // loop indefinitely
                     while (!stop) {
-                        
+
                         // check each drive 
                         for (int i = 0; i < letters.length; ++i) {
                             boolean pluggedIn = drives[i].canRead();
@@ -1321,7 +1350,7 @@ public class Cashier extends javax.swing.JFrame {
                                     if (text.equals(password)) {
                                         jop.setMessage("Void Complete");
                                         pending = false;
-                                        totalPrice=0;
+                                        totalPrice = 0;
                                         receiptArea.setText(receipt);
                                         reader.close();
                                         stop = true;
@@ -1338,11 +1367,11 @@ public class Cashier extends javax.swing.JFrame {
                         try {
                             Thread.sleep(1000);
                             j--;
-                            jop.setMessage("Insert Flash Drive that contains void key.\nExiting in "+j + " seconds.");
+                            jop.setMessage("Insert Flash Drive that contains void key.\nExiting in " + j + " seconds.");
                         } catch (InterruptedException e) {
                             /* do nothing */ }
-                        if(j==0){
-                            stop=true;
+                        if (j == 0) {
+                            stop = true;
                         }
                     }
 
@@ -1392,7 +1421,7 @@ public class Cashier extends javax.swing.JFrame {
     private void calculateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateButtonActionPerformed
         // TODO add your handling code here:
         changeTextField.setText("");
-        if (pending == false || ((pending ==true) && totalPrice==0)) {
+        if (pending == false || ((pending == true) && totalPrice == 0)) {
             pending = true;
             receiptArea.setText(receipt);
             String classicBurgerReceipt;
@@ -1426,139 +1455,137 @@ public class Cashier extends javax.swing.JFrame {
             if (classicBurgerPrice > 0) {
                 classicBurgerReceipt = "\nClassic Burger\t\t\t" + classicBurgerPrice;
                 receiptArea.setText(receiptArea.getText() + classicBurgerReceipt);
-                classicBurgerSpinner.setValue(0);
+
             }
 
             if (chickenBurgerPrice > 0) {
-                chickenBurgerReceipt = "\nChicken Burger\t\t\t" + chickenBurgerPrice;
+                chickenBurgerReceipt = "\nChicken Brgr\t\t\t" + chickenBurgerPrice;
                 receiptArea.setText(receiptArea.getText() + chickenBurgerReceipt);
-                chickenBurgerSpinner.setValue(0);
+
             }
 
             if (cheeseBurgerPrice > 0) {
-                cheeseBurgerReceipt = "\nCheese Burger\t\t\t" + cheeseBurgerPrice;
+                cheeseBurgerReceipt = "\nCheese Brgr\t\t\t" + cheeseBurgerPrice;
                 receiptArea.setText(receiptArea.getText() + cheeseBurgerReceipt);
-                cheeseBurgerSpinner.setValue(0);
+
             }
 
             if (veggieBurgerPrice > 0) {
                 veggieBurgerReceipt = "\nVeggie Burger\t\t\t" + veggieBurgerPrice;
                 receiptArea.setText(receiptArea.getText() + veggieBurgerReceipt);
-                veggieBurgerSpinner.setValue(0);
+
             }
 
             if (doublePattyBurgerPrice > 0) {
                 doublePattyBurgerReceipt = "\nDouble Patty Burger\t\t" + doublePattyBurgerPrice;
                 receiptArea.setText(receiptArea.getText() + doublePattyBurgerReceipt);
-                doublePattyBurgerSpinner.setValue(0);
+
             }
 
             if (triplePattyBurgerPrice > 0) {
                 triplePattyBurgerReceipt = "\nTriple Patty Burger\t\t" + triplePattyBurgerPrice;
                 receiptArea.setText(receiptArea.getText() + triplePattyBurgerReceipt);
-                triplePattyBurgerSpinner.setValue(0);
+
             }
 
             if (eggBaconBurgerPrice > 0) {
                 eggBaconBurgerReceipt = "\nEgg Bacon Burger\t\t" + eggBaconBurgerPrice;
                 receiptArea.setText(receiptArea.getText() + eggBaconBurgerReceipt);
-                eggBaconBurgerSpinner.setValue(0);
+
             }
 
             if (supremeBurgerPrice > 0) {
                 supremeBurgerReceipt = "\nSupreme Burger\t\t" + supremeBurgerPrice;
                 receiptArea.setText(receiptArea.getText() + supremeBurgerReceipt);
-                supremeBurgerSpinner.setValue(0);
+
             }
 
             if (classicFriesPrice > 0) {
                 classicFriesReceipt = "\nClassic Fries\t\t\t" + classicFriesPrice;
                 receiptArea.setText(receiptArea.getText() + classicFriesReceipt);
-                classicFriesSpinner.setValue(0);
+
             }
 
             if (chunkyFriesPrice > 0) {
                 chunkyFriesReceipt = "\nChunky Fries\t\t\t" + chunkyFriesPrice;
                 receiptArea.setText(receiptArea.getText() + chunkyFriesReceipt);
-                chunkyFriesSpinner.setValue(0);
+
             }
 
             if (shoestringFriesPrice > 0) {
                 shoestringFriesReceipt = "\nShoeString Fries\t\t" + shoestringFriesPrice;
                 receiptArea.setText(receiptArea.getText() + shoestringFriesReceipt);
-                shoeStringSpinner.setValue(0);
+
             }
 
             if (sweetpotatoFriesPrice > 0) {
                 sweetpotatoFriesReceipt = "\nSweet Potato Fries\t\t" + sweetpotatoFriesPrice;
                 receiptArea.setText(receiptArea.getText() + sweetpotatoFriesReceipt);
-                sweetPotatoSpinner.setValue(0);
+
             }
 
             if (burgerSteakPrice > 0) {
                 burgSteakReceipt = "\nBurger Steak\t\t\t" + burgerSteakPrice;
                 receiptArea.setText(receiptArea.getText() + burgSteakReceipt);
-                burgerSteakSpinner.setValue(0);
+
             }
 
             if (burgerSteak2Price > 0) {
                 burgSteak2Receipt = "\n2 pcs. Burger Steak\t\t" + burgerSteak2Price;
                 receiptArea.setText(receiptArea.getText() + burgSteak2Receipt);
-                burgerSteakSpinner2.setValue(0);
+
             }
 
             if (burgSteakCMPrice > 0) {
                 burgSteakCMReceipt = "\nBurger Steak Combo Meal\t\t" + burgSteakCMPrice;
                 receiptArea.setText(receiptArea.getText() + burgSteakCMReceipt);
-                burgSteakCMSpinner.setValue(0);
+
             }
 
             if (burgSteak2CMPrice > 0) {
                 burgSteakCM2Receipt = "\n2pc BurgSteak Combo Meal\t\t" + burgSteak2CMPrice;
                 receiptArea.setText(receiptArea.getText() + burgSteakCM2Receipt);
-                burgSteakCMSpinner2.setValue(0);
+
             }
 
             if (regularCokePrice > 0) {
                 regularCokeReceipt = "\nRegular Coke\t\t\t" + regularCokePrice;
                 receiptArea.setText(receiptArea.getText() + regularCokeReceipt);
-                regularCokeSpinner.setValue(0);
+
             }
             if (largeCokePrice > 0) {
                 largeCokeReceipt = "\nLarge Coke\t\t\t" + largeCokePrice;
                 receiptArea.setText(receiptArea.getText() + largeCokeReceipt);
-                largeCokeSpinner.setValue(0);
+
             }
             if (regularIcedTeaPrice > 0) {
                 regularIcedTeaReceipt = "\nRegular Iced Tea\t\t" + regularIcedTeaPrice;
                 receiptArea.setText(receiptArea.getText() + regularIcedTeaReceipt);
-                regularIcedTeaSpinner.setValue(0);
+
             }
             if (largeIcedTeaPrice > 0) {
-                largeIcedTeaReceipt = "\nLarge Iced Tea\t\t\t" + largeIcedTeaPrice;
+                largeIcedTeaReceipt = "\nLarge IcdTea\t\t\t" + largeIcedTeaPrice;
                 receiptArea.setText(receiptArea.getText() + largeIcedTeaReceipt);
-                largeIcedTeaSpinner.setValue(0);
+
             }
 
             if (bottomlessIcedTeaPrice > 0) {
                 bottomlessIcedTeaReceipt = "\nBottomless Iced Tea\t\t" + bottomlessIcedTeaPrice;
                 receiptArea.setText(receiptArea.getText() + bottomlessIcedTeaReceipt);
-                bottomlessIcedTeaSpinner.setValue(0);
-            }
 
+            }
+            
             if (discountComboBox.getSelectedIndex() == 1 || discountComboBox.getSelectedIndex() == 2) {
                 totalPrice = totalPrice - (totalPrice * .20);
-                String totalPriceReceipt = "\n\nTotal Amount (20%)Discount\t\t" + totalPrice;
-                receiptArea.setText(receiptArea.getText() + totalPriceReceipt);
                 String totalPriceFieldText = Double.toString(totalPrice);
                 totalPriceField.setText(totalPriceFieldText);
-                discountComboBox.setSelectedIndex(0);
+
             } else {
-                String totalPriceReceipt = "\n\nTotal Amount\t\t\t" + totalPrice;
-                receiptArea.setText(receiptArea.getText() + totalPriceReceipt);
                 String totalPriceFieldText = Double.toString(totalPrice);
                 totalPriceField.setText(totalPriceFieldText);
             }
+
+
 
         } else {
             if (totalPrice > 0) {
@@ -1578,15 +1605,29 @@ public class Cashier extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        double test=0;
-        if(pending){
-           test = Double.parseDouble(ammountPaid.getText());
+        double test = 0;
+        if (pending) {
+            test = Double.parseDouble(ammountPaid.getText());
         }
-        
-        if(totalPrice>test){
+
+        if (totalPrice > test) {
             JOptionPane.showMessageDialog(null, "ERROR: Ammount Paid is less than Total Price\nPlease Try again with the right ammount.");
-        }else{
+        } else {
             pending = false;
+            if (discountComboBox.getSelectedIndex() == 1 || discountComboBox.getSelectedIndex() == 2) {
+                totalPrice = totalPrice - (totalPrice * .20);
+                String totalPriceReceipt = "\n\nTotal Amount (20%)Discount\t\t" + totalPrice;
+                receiptArea.setText(receiptArea.getText() + totalPriceReceipt);
+                String totalPriceFieldText = Double.toString(totalPrice);
+                totalPriceField.setText(totalPriceFieldText);
+
+            } else {
+                String totalPriceReceipt = "\n\nTotal Amount\t\t\t" + totalPrice;
+                receiptArea.setText(receiptArea.getText() + totalPriceReceipt);
+                String totalPriceFieldText = Double.toString(totalPrice);
+                totalPriceField.setText(totalPriceFieldText);
+            }
+            discountComboBox.setSelectedIndex(0);
             totalChange = Double.parseDouble(ammountPaid.getText()) - totalPrice;
             String ammoundPaidReceipt = "\nAmmount Paid\t\t\t" + Double.parseDouble(ammountPaid.getText());
             String totalChangeReceipt = "\nChange\t\t\t" + totalChange;
@@ -1595,10 +1636,30 @@ public class Cashier extends javax.swing.JFrame {
             String totalChangeText = Double.toString(totalChange);
             changeTextField.setText(totalChangeText);
             totalPriceField.setText("");
-            
+            classicBurgerSpinner.setValue(0);
+            bottomlessIcedTeaSpinner.setValue(0);
+            largeIcedTeaSpinner.setValue(0);
+            regularIcedTeaSpinner.setValue(0);
+            largeCokeSpinner.setValue(0);
+            regularCokeSpinner.setValue(0);
+            burgSteakCMSpinner2.setValue(0);
+            burgSteakCMSpinner.setValue(0);
+            burgerSteakSpinner2.setValue(0);
+            sweetPotatoSpinner.setValue(0);
+            shoeStringSpinner.setValue(0);
+            chunkyFriesSpinner.setValue(0);
+            classicFriesSpinner.setValue(0);
+            supremeBurgerSpinner.setValue(0);
+            eggBaconBurgerSpinner.setValue(0);
+            triplePattyBurgerSpinner.setValue(0);
+            doublePattyBurgerSpinner.setValue(0);
+            veggieBurgerSpinner.setValue(0);
+            cheeseBurgerSpinner.setValue(0);
+            burgerSteakSpinner.setValue(0);
+            chickenBurgerSpinner.setValue(0);
+
             ammountPaid.setText("");
         }
-        
 
 
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -1792,13 +1853,368 @@ public class Cashier extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        int idCode=Integer.parseInt(manualOrderIDCode.getText());
-        int qty = (int) manualOrderSpinner.getValue();
-        
-        receiptArea.setText(receiptArea.getText() + "\nTry\t\t\t 123123");
-        
-        
+        boolean cancel = false;
+        String classicBurgerReceipt;
+        String chickenBurgerReceipt;
+        String cheeseBurgerReceipt;
+        String veggieBurgerReceipt;
+        String doublePattyBurgerReceipt;
+        String triplePattyBurgerReceipt;
+        String eggBaconBurgerReceipt;
+        String supremeBurgerReceipt;
+        String classicFriesReceipt;
+        String chunkyFriesReceipt;
+        String shoestringFriesReceipt;
+        String sweetpotatoFriesReceipt;
+        String burgSteakReceipt;
+        String burgSteak2Receipt;
+        String burgSteakCMReceipt;
+        String burgSteakCM2Receipt;
+        String regularCokeReceipt;
+        String largeCokeReceipt;
+        String regularIcedTeaReceipt;
+        String largeIcedTeaReceipt;
+        String bottomlessIcedTeaReceipt;
+        int idCode = Integer.parseInt(cancelOrderIDCode.getText());
+
+        if (idCode == 100001) {
+            if (classicBurgerPrice > 0) {
+                classicBurgerPrice = 0;
+                cancel = true;
+            }
+        }
+        if (idCode == 100002) {
+            if (cheeseBurgerPrice > 0) {
+                cheeseBurgerPrice = 0;
+                cancel = true;
+            }
+        }
+        if (idCode == 100003) {
+            if (doublePattyBurgerPrice > 0) {
+                doublePattyBurgerPrice = 0;
+                cancel = true;
+            }
+        }
+        if (idCode == 100004) {
+            if (triplePattyBurgerPrice > 0) {
+                triplePattyBurgerPrice = 0;
+                cancel = true;
+            }
+        }
+        if (idCode == 100005) {
+            if (chickenBurgerPrice > 0) {
+                chickenBurgerPrice = 0;
+                cancel = true;
+            }
+        }
+        if (idCode == 100006) {
+            if (veggieBurgerPrice > 0) {
+                veggieBurgerPrice = 0;
+                cancel = true;
+            }
+        }
+
+        if (idCode == 100007) {
+            if (eggBaconBurgerPrice > 0) {
+                eggBaconBurgerPrice = 0;
+                cancel = true;
+            }
+        }
+        if (idCode == 100008) {
+            if (supremeBurgerPrice > 0) {
+                supremeBurgerPrice = 0;
+                cancel = true;
+            }
+        }
+        if (idCode == 200001) {
+            if (classicFriesPrice > 0) {
+                classicFriesPrice = 0;
+                cancel = true;
+            }
+        }
+        if (idCode == 200002) {
+            if (chunkyFriesPrice > 0) {
+                chunkyFriesPrice = 0;
+                cancel = true;
+            }
+        }
+        if (idCode == 200003) {
+            if (shoestringFriesPrice > 0) {
+                shoestringFriesPrice = 0;
+                cancel = true;
+            }
+        }
+        if (idCode == 200004) {
+            if (sweetpotatoFriesPrice > 0) {
+                sweetpotatoFriesPrice = 0;
+                cancel = true;
+            }
+        }
+        if (idCode == 300001) {
+            if (burgerSteakPrice > 0) {
+                burgerSteakPrice = 0;
+                cancel = true;
+            }
+        }
+        if (idCode == 300002) {
+            if (burgerSteak2Price > 0) {
+                burgerSteak2Price = 0;
+                cancel = true;
+            }
+        }
+        if (idCode == 300003) {
+            if (burgSteakCMPrice > 0) {
+                burgSteakCMPrice = 0;
+                cancel = true;
+            }
+        }
+        if (idCode == 300004) {
+            if (burgSteak2CMPrice > 0) {
+                burgSteak2CMPrice = 0;
+                cancel = true;
+            }
+        }
+        if (idCode == 400001) {
+            if (regularCokePrice > 0) {
+                regularCokePrice = 0;
+                cancel = true;
+            }
+        }
+        if (idCode == 400002) {
+            if (largeCokePrice > 0) {
+                largeCokePrice = 0;
+                cancel = true;
+            }
+        }
+        if (idCode == 400003) {
+            if (regularIcedTeaPrice > 0) {
+                regularIcedTeaPrice = 0;
+                cancel = true;
+            }
+        }
+        if (idCode == 400004) {
+            if (largeIcedTeaPrice > 0) {
+                largeIcedTeaPrice = 0;
+                cancel = true;
+            }
+        }
+        if (idCode == 400005) {
+            if (bottomlessIcedTeaPrice > 0) {
+                bottomlessIcedTeaPrice = 0;
+                cancel = true;
+            }
+        }
+
+        if (cancel == true) {
+            receiptArea.setText(receipt);
+            totalPrice = classicBurgerPrice + chickenBurgerPrice + cheeseBurgerPrice + veggieBurgerPrice + doublePattyBurgerPrice + triplePattyBurgerPrice + eggBaconBurgerPrice + supremeBurgerPrice;
+            totalPrice = totalPrice + classicFriesPrice + chunkyFriesPrice + shoestringFriesPrice + sweetpotatoFriesPrice;
+            totalPrice = totalPrice + burgerSteakPrice + burgerSteak2Price + burgSteakCMPrice + burgSteak2CMPrice;
+            totalPrice = totalPrice + regularCokePrice + largeCokePrice + regularIcedTeaPrice + largeIcedTeaPrice + bottomlessIcedTeaPrice;
+
+            //receiptArea.setText("**************************************************\n");
+            //receiptArea.setText(receiptArea.getText() + "*                          SUABURGERS                          *\n");
+            //receiptArea.setText(receiptArea.getText() + "**************************************************\n");
+            if (classicBurgerPrice > 0) {
+                classicBurgerReceipt = "\nClassic Burger\t\t\t" + classicBurgerPrice;
+                receiptArea.setText(receiptArea.getText() + classicBurgerReceipt);
+                
+            }
+
+            if (chickenBurgerPrice > 0) {
+                chickenBurgerReceipt = "\nChicken Brgr\t\t\t" + chickenBurgerPrice;
+                receiptArea.setText(receiptArea.getText() + chickenBurgerReceipt);
+                
+            }
+
+            if (cheeseBurgerPrice > 0) {
+                cheeseBurgerReceipt = "\nCheese Brgr\t\t\t" + cheeseBurgerPrice;
+                receiptArea.setText(receiptArea.getText() + cheeseBurgerReceipt);
+                
+            }
+
+            if (veggieBurgerPrice > 0) {
+                veggieBurgerReceipt = "\nVeggie Burger\t\t\t" + veggieBurgerPrice;
+                receiptArea.setText(receiptArea.getText() + veggieBurgerReceipt);
+                
+            }
+
+            if (doublePattyBurgerPrice > 0) {
+                doublePattyBurgerReceipt = "\nDouble Patty Burger\t\t" + doublePattyBurgerPrice;
+                receiptArea.setText(receiptArea.getText() + doublePattyBurgerReceipt);
+                
+            }
+
+            if (triplePattyBurgerPrice > 0) {
+                triplePattyBurgerReceipt = "\nTriple Patty Burger\t\t" + triplePattyBurgerPrice;
+                receiptArea.setText(receiptArea.getText() + triplePattyBurgerReceipt);
+            }
+
+            if (eggBaconBurgerPrice > 0) {
+                eggBaconBurgerReceipt = "\nEgg Bacon Burger\t\t" + eggBaconBurgerPrice;
+                receiptArea.setText(receiptArea.getText() + eggBaconBurgerReceipt);
+            }
+
+            if (supremeBurgerPrice > 0) {
+                supremeBurgerReceipt = "\nSupreme Burger\t\t" + supremeBurgerPrice;
+                receiptArea.setText(receiptArea.getText() + supremeBurgerReceipt);
+            }
+
+            if (classicFriesPrice > 0) {
+                classicFriesReceipt = "\nClassic Fries\t\t\t" + classicFriesPrice;
+                receiptArea.setText(receiptArea.getText() + classicFriesReceipt);
+            }
+
+            if (chunkyFriesPrice > 0) {
+                chunkyFriesReceipt = "\nChunky Fries\t\t\t" + chunkyFriesPrice;
+                receiptArea.setText(receiptArea.getText() + chunkyFriesReceipt);
+            }
+
+            if (shoestringFriesPrice > 0) {
+                shoestringFriesReceipt = "\nShoeString Fries\t\t" + shoestringFriesPrice;
+                receiptArea.setText(receiptArea.getText() + shoestringFriesReceipt);
+            }
+
+            if (sweetpotatoFriesPrice > 0) {
+                sweetpotatoFriesReceipt = "\nSweet Potato Fries\t\t" + sweetpotatoFriesPrice;
+                receiptArea.setText(receiptArea.getText() + sweetpotatoFriesReceipt);
+            }
+
+            if (burgerSteakPrice > 0) {
+                burgSteakReceipt = "\nBurger Steak\t\t\t" + burgerSteakPrice;
+                receiptArea.setText(receiptArea.getText() + burgSteakReceipt);
+            }
+
+            if (burgerSteak2Price > 0) {
+                burgSteak2Receipt = "\n2 pcs. Burger Steak\t\t" + burgerSteak2Price;
+                receiptArea.setText(receiptArea.getText() + burgSteak2Receipt);
+            }
+
+            if (burgSteakCMPrice > 0) {
+                burgSteakCMReceipt = "\nBurger Steak Combo Meal\t\t" + burgSteakCMPrice;
+                receiptArea.setText(receiptArea.getText() + burgSteakCMReceipt);
+            }
+
+            if (burgSteak2CMPrice > 0) {
+                burgSteakCM2Receipt = "\n2pc BurgSteak Combo Meal\t\t" + burgSteak2CMPrice;
+                receiptArea.setText(receiptArea.getText() + burgSteakCM2Receipt);
+            }
+
+            if (regularCokePrice > 0) {
+                regularCokeReceipt = "\nRegular Coke\t\t\t" + regularCokePrice;
+                receiptArea.setText(receiptArea.getText() + regularCokeReceipt);
+            }
+            if (largeCokePrice > 0) {
+                largeCokeReceipt = "\nLarge Coke\t\t\t" + largeCokePrice;
+                receiptArea.setText(receiptArea.getText() + largeCokeReceipt);
+            }
+            if (regularIcedTeaPrice > 0) {
+                regularIcedTeaReceipt = "\nRegular Iced Tea\t\t" + regularIcedTeaPrice;
+                receiptArea.setText(receiptArea.getText() + regularIcedTeaReceipt);
+            }
+            if (largeIcedTeaPrice > 0) {
+                largeIcedTeaReceipt = "\nLarge IcdTea\t\t\t" + largeIcedTeaPrice;
+                receiptArea.setText(receiptArea.getText() + largeIcedTeaReceipt);
+            }
+
+            if (bottomlessIcedTeaPrice > 0) {
+                bottomlessIcedTeaReceipt = "\nBottomless Iced Tea\t\t" + bottomlessIcedTeaPrice;
+                receiptArea.setText(receiptArea.getText() + bottomlessIcedTeaReceipt);
+            }
+
+            if (discountComboBox.getSelectedIndex() == 1 || discountComboBox.getSelectedIndex() == 2) {
+                totalPrice = totalPrice - (totalPrice * .20);
+                String totalPriceFieldText = Double.toString(totalPrice);
+                totalPriceField.setText(totalPriceFieldText);
+
+            } else {
+                String totalPriceFieldText = Double.toString(totalPrice);
+                totalPriceField.setText(totalPriceFieldText);
+            }
+        }
+
+
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void cancelOrderIDCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelOrderIDCodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cancelOrderIDCodeActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        BinaryTree listtree = new BinaryTree();
+        listtree.insert("RC01", "Burger Steak", 300001, 50.00);
+        listtree.insert("RC02", "2pc Burger Steak", 300002, 80.00);
+        listtree.insert("B01", "Classic Burger", 100001, 50.00);
+        listtree.insert("B02", "Cheese Burger", 100002, 60.00);
+        listtree.insert("B03", "Double Patty Burger", 100003, 120.00);
+        listtree.insert("B04", "Triple Patty Burger", 100004, 180.00);
+        listtree.insert("B05", "Chicken Burger", 100005, 50.00);
+        listtree.insert("B06", "Veggie Burger", 100006, 50.00);
+        listtree.insert("B07", "Egg n' Bacon Burger", 100007, 60.00);
+        listtree.insert("B08", "Supreme Burger", 100008, 60.00);
+        listtree.insert("F01", "Classic Fries", 200001, 30.00);
+        listtree.insert("F02", "Chunky Fries", 200002, 40.00);
+        listtree.insert("F03", "ShoeString Fries", 200003, 40.00);
+        listtree.insert("F04", "Sweet Potato Fries", 200004, 40.00);
+        listtree.insert("CRC01", "BurgSteak Combo Meal", 300003, 100.00);
+        listtree.insert("CRC02", "2pc BurgSteak Combo Meal", 300004, 160.00);
+        listtree.insert("D1", "Regular Coke", 400001, 20.00);
+        listtree.insert("D2", "Large Coke", 400002, 70.00);
+        listtree.insert("D3", "Regular Iced Tea", 400003, 40.00);
+        listtree.insert("D4", "Large Iced Tea", 400004, 70.00);
+        listtree.insert("D5", "Bottomless Iced Tea", 400005, 70.00);
+
+        String classicBurgerReceipt;
+        String chickenBurgerReceipt;
+        String cheeseBurgerReceipt;
+        String veggieBurgerReceipt;
+        String doublePattyBurgerReceipt;
+        String triplePattyBurgerReceipt;
+        String eggBaconBurgerReceipt;
+        String supremeBurgerReceipt;
+        String classicFriesReceipt;
+        String chunkyFriesReceipt;
+        String shoestringFriesReceipt;
+        String sweetpotatoFriesReceipt;
+        String burgSteakReceipt;
+        String burgSteak2Receipt;
+        String burgSteakCMReceipt;
+        String burgSteakCM2Receipt;
+        String regularCokeReceipt;
+        String largeCokeReceipt;
+        String regularIcedTeaReceipt;
+        String largeIcedTeaReceipt;
+        String bottomlessIcedTeaReceipt;
+        
+        double price;
+        int idCode = Integer.parseInt(manualOrderIDCode.getText());
+        int qty;
+        String name = listtree.searchName(idCode);
+        price = listtree.searchPrice(idCode);
+        qty = (int) manualOrderSpinner.getValue();
+        price = price * qty;
+        totalPrice=totalPrice+price;
+        
+        
+            if(name.length()<15){
+                receiptArea.setText(receiptArea.getText() + "\n" + name + "\t\t\t" + price);
+            }else{
+                receiptArea.setText(receiptArea.getText() + "\n" + name + "\t\t" + price);
+            }
+            
+            if (discountComboBox.getSelectedIndex() == 1 || discountComboBox.getSelectedIndex() == 2) {
+                totalPrice = totalPrice - (totalPrice * .20);
+                String totalPriceFieldText = Double.toString(totalPrice);
+                totalPriceField.setText(totalPriceFieldText);
+
+            } else {
+                String totalPriceFieldText = Double.toString(totalPrice);
+                totalPriceField.setText(totalPriceFieldText);
+            }
+
+
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1834,6 +2250,109 @@ public class Cashier extends javax.swing.JFrame {
             }
         });
     }
+    class NodeT {
+        private String productID;
+        private String productName;
+        private int itemCode;
+        private double price;
+        private NodeT left;
+        private  NodeT right;
+
+    public NodeT(String productID, String productName, int itemCode, double price) {
+        this.productID = productID;
+        this.productName = productName;
+        this.itemCode = itemCode;
+        this.price = price;
+    }
+
+}
+
+class BinaryTree {
+    NodeT root;
+
+    public void insert(String productID, String productName, int itemCode, double price) {
+
+        NodeT newNode = new NodeT(productID, productName, itemCode, price);
+
+        if (root == null) {
+            root = newNode;
+        } else {
+            NodeT temp = root;
+
+            NodeT parent;
+            while (true) {
+                parent = temp;
+
+                if (itemCode < temp.itemCode) {
+                    temp = temp.left;
+
+                    if (temp == null) {
+                        parent.left = newNode;
+                        return;
+                    }
+                } else {
+                    temp = temp.right;
+
+                    if (temp == null) {
+                        parent.right = newNode;
+                        return;
+                    }
+                }
+
+            }
+        }
+    }
+
+    public double searchPrice(int itemCode) {
+
+            NodeT temp = root;
+
+            while (true) {
+
+
+                if (itemCode < temp.itemCode) {
+                    temp = temp.left;
+
+                    if (temp.itemCode == itemCode) {
+                        return temp.price;
+                    }
+                } else {
+                    temp = temp.right;
+
+                    if (temp.itemCode == itemCode) {
+                        return temp.price;
+                    }
+                }
+
+            }
+        }
+    
+
+    public String searchName(int itemCode) {
+
+        NodeT temp = root;
+
+        
+        while (true) {
+            
+
+            if (itemCode < temp.itemCode) {
+                temp = temp.left;
+
+                if (temp.itemCode == itemCode) {
+                    return temp.productName;
+                }
+            } else {
+                temp = temp.right;
+
+                if (temp.itemCode == itemCode) {
+                    return temp.productName;
+                }
+            }
+
+        }
+    }
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel afafasfasfa;
@@ -1847,6 +2366,7 @@ public class Cashier extends javax.swing.JFrame {
     private javax.swing.JSpinner burgerSteakSpinner2;
     private javax.swing.JPanel burgersPane;
     private javax.swing.JButton calculateButton;
+    private javax.swing.JTextField cancelOrderIDCode;
     private javax.swing.JTextField changeTextField;
     private javax.swing.JSpinner cheeseBurgerSpinner;
     private javax.swing.JSpinner chickenBurgerSpinner;
@@ -1864,6 +2384,7 @@ public class Cashier extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1893,6 +2414,8 @@ public class Cashier extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
