@@ -56,6 +56,7 @@ public class Cashier extends javax.swing.JFrame {
     boolean order = false;
     double discount;
     boolean pending = false;
+    boolean paid = true;
     boolean disc = false;
     LinkedList list = new LinkedList();
     double totalPrice = 0;
@@ -195,7 +196,6 @@ public class Cashier extends javax.swing.JFrame {
         jLabel57 = new javax.swing.JLabel();
         jLabel58 = new javax.swing.JLabel();
         jLabel59 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         totalPriceField = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         ammountPaid = new javax.swing.JTextField();
@@ -212,10 +212,6 @@ public class Cashier extends javax.swing.JFrame {
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        cancelOrderIDCode = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
 
@@ -283,7 +279,7 @@ public class Cashier extends javax.swing.JFrame {
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addComponent(jLabel2)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -352,7 +348,7 @@ public class Cashier extends javax.swing.JFrame {
             .addGroup(jPanel16Layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jLabel4)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -776,7 +772,7 @@ public class Cashier extends javax.swing.JFrame {
 
         jLabel47.setText("200001");
 
-        jLabel48.setText("100001");
+        jLabel48.setText("200003");
 
         jLabel49.setText("200002");
 
@@ -1195,20 +1191,6 @@ public class Cashier extends javax.swing.JFrame {
 
         jPanel1.add(drinksScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 670, 513));
 
-        jButton1.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        jButton1.setText("VOID ALL");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jButton1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jButton1KeyPressed(evt);
-            }
-        });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 80, 110, 40));
-
         totalPriceField.setEditable(false);
         totalPriceField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1259,7 +1241,7 @@ public class Cashier extends javax.swing.JFrame {
                 calculateButtonKeyPressed(evt);
             }
         });
-        jPanel1.add(calculateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 220, 110, 20));
+        jPanel1.add(calculateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 200, 110, 40));
 
         jButton4.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         jButton4.setText("PAY");
@@ -1274,7 +1256,7 @@ public class Cashier extends javax.swing.JFrame {
                 jButton4KeyPressed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 280, 70, 20));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 260, 110, 40));
 
         jButton2.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         jButton2.setText("CLEAR");
@@ -1322,32 +1304,6 @@ public class Cashier extends javax.swing.JFrame {
         jLabel35.setForeground(new java.awt.Color(255, 255, 255));
         jLabel35.setText("ITEM CODE:");
         jPanel1.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, -1, -1));
-
-        jButton3.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        jButton3.setText("CANCEL");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 80, 100, 40));
-
-        jLabel36.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel36.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel36.setText("CANCEL ORDER");
-        jPanel1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 50, -1, -1));
-
-        jLabel37.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel37.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel37.setText("ITEM CODE:");
-        jPanel1.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 100, -1, -1));
-
-        cancelOrderIDCode.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelOrderIDCodeActionPerformed(evt);
-            }
-        });
-        jPanel1.add(cancelOrderIDCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 90, 100, 30));
 
         jButton5.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         jButton5.setText("ADD");
@@ -1415,97 +1371,6 @@ public class Cashier extends javax.swing.JFrame {
         drinksScrollPane.setVisible(false);
         drinksScrollPane.setVisible(true);
     }//GEN-LAST:event_jPanel16MousePressed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        JOptionPane jop = new JOptionPane();
-        jop.setMessageType(JOptionPane.PLAIN_MESSAGE);
-
-        JDialog dialog = jop.createDialog(null, "Insert Flash Drive");
-
-        dialog.setSize(400, 150);
-        dialog.setLocationRelativeTo(null);
-        // Set a 2 second timer
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    String[] letters = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I"};
-                    File[] drives = new File[letters.length];
-                    boolean[] isDrive = new boolean[letters.length];
-                    String text = "";
-                    boolean stop = false;
-                    int j = 15;
-                    jop.setMessage("Insert Flash Drive that contains void key.\nExiting in " + j + " seconds.");
-                    // init the file objects and the initial drive state
-                    for (int i = 0; i < letters.length; ++i) {
-                        drives[i] = new File(letters[i] + ":/");
-
-                        isDrive[i] = drives[i].canRead();
-                    }
-
-                    // loop indefinitely
-                    while (!stop) {
-
-                        // check each drive 
-                        for (int i = 0; i < letters.length; ++i) {
-                            boolean pluggedIn = drives[i].canRead();
-
-                            // if the state has changed output a message
-                            if (pluggedIn != isDrive[i]) {
-                                if (pluggedIn) {
-
-                                    FileReader file = new FileReader(letters[i] + ":/suaburgers.txt");
-                                    BufferedReader reader = new BufferedReader(file);
-                                    String line = reader.readLine();
-                                    while (line != null) {
-                                        text += line;
-                                        line = reader.readLine();
-                                    }
-                                    String password = "ourburgeristhebest";
-                                    if (text.equals(password)) {
-                                        jop.setMessage("Void Complete");
-                                        pending = false;
-                                        totalPrice = 0;
-                                        receiptArea.setText(receipt);
-                                        reader.close();
-                                        stop = true;
-                                    }
-
-                                } else {
-                                    text = "";
-                                }
-                                isDrive[i] = pluggedIn;
-                            }
-                        }
-
-                        // wait before looping
-                        try {
-                            Thread.sleep(1000);
-                            j--;
-                            jop.setMessage("Insert Flash Drive that contains void key.\nExiting in " + j + " seconds.");
-                        } catch (InterruptedException e) {
-                            /* do nothing */ }
-                        if (j == 0) {
-                            stop = true;
-                        }
-                    }
-
-                } catch (Exception e) {
-                }
-                dialog.dispose();
-            }
-
-        }).start();
-
-        dialog.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
-        // TODO add your handling code here:
-
-
-    }//GEN-LAST:event_jButton1KeyPressed
 
     private void classicBurgerSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_classicBurgerSpinnerStateChanged
         // TODO add your handling code here:
@@ -1728,6 +1593,7 @@ public class Cashier extends javax.swing.JFrame {
             if ((discount > pay && disc == true ) || (totalPrice > pay && disc != true) ) {
             JOptionPane.showMessageDialog(null, "ERROR: Ammount Paid is less than Total Price\nPlease Try again with the right ammount.");
         } else {
+            paid=true;
             pending = false;
             order = false;
             if (discountComboBox.getSelectedIndex() == 1 || discountComboBox.getSelectedIndex() == 2) {
@@ -1866,6 +1732,7 @@ public class Cashier extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"ERROR: Cannot clear if there are pending orders.");
         }else{
             receiptArea.setText(receipt);
+            changeTextField.setText("");
         }
         
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -1973,295 +1840,6 @@ public class Cashier extends javax.swing.JFrame {
         qty = (int) bottomlessIcedTeaSpinner.getValue();
         bottomlessIcedTeaPrice = bottomlessIcedTeaPrice * qty;
     }//GEN-LAST:event_bottomlessIcedTeaSpinnerStateChanged
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        boolean cancel = false;
-        String classicBurgerReceipt;
-        String chickenBurgerReceipt;
-        String cheeseBurgerReceipt;
-        String veggieBurgerReceipt;
-        String doublePattyBurgerReceipt;
-        String triplePattyBurgerReceipt;
-        String eggBaconBurgerReceipt;
-        String supremeBurgerReceipt;
-        String classicFriesReceipt;
-        String chunkyFriesReceipt;
-        String shoestringFriesReceipt;
-        String sweetpotatoFriesReceipt;
-        String burgSteakReceipt;
-        String burgSteak2Receipt;
-        String burgSteakCMReceipt;
-        String burgSteakCM2Receipt;
-        String regularCokeReceipt;
-        String largeCokeReceipt;
-        String regularIcedTeaReceipt;
-        String largeIcedTeaReceipt;
-        String bottomlessIcedTeaReceipt;
-        int idCode = Integer.parseInt(cancelOrderIDCode.getText());
-
-        if (idCode == 100001) {
-            if (classicBurgerPrice > 0) {
-                classicBurgerPrice = 0;
-                cancel = true;
-            }
-        }
-        if (idCode == 100002) {
-            if (cheeseBurgerPrice > 0) {
-                cheeseBurgerPrice = 0;
-                cancel = true;
-            }
-        }
-        if (idCode == 100003) {
-            if (doublePattyBurgerPrice > 0) {
-                doublePattyBurgerPrice = 0;
-                cancel = true;
-            }
-        }
-        if (idCode == 100004) {
-            if (triplePattyBurgerPrice > 0) {
-                triplePattyBurgerPrice = 0;
-                cancel = true;
-            }
-        }
-        if (idCode == 100005) {
-            if (chickenBurgerPrice > 0) {
-                chickenBurgerPrice = 0;
-                cancel = true;
-            }
-        }
-        if (idCode == 100006) {
-            if (veggieBurgerPrice > 0) {
-                veggieBurgerPrice = 0;
-                cancel = true;
-            }
-        }
-
-        if (idCode == 100007) {
-            if (eggBaconBurgerPrice > 0) {
-                eggBaconBurgerPrice = 0;
-                cancel = true;
-            }
-        }
-        if (idCode == 100008) {
-            if (supremeBurgerPrice > 0) {
-                supremeBurgerPrice = 0;
-                cancel = true;
-            }
-        }
-        if (idCode == 200001) {
-            if (classicFriesPrice > 0) {
-                classicFriesPrice = 0;
-                cancel = true;
-            }
-        }
-        if (idCode == 200002) {
-            if (chunkyFriesPrice > 0) {
-                chunkyFriesPrice = 0;
-                cancel = true;
-            }
-        }
-        if (idCode == 200003) {
-            if (shoestringFriesPrice > 0) {
-                shoestringFriesPrice = 0;
-                cancel = true;
-            }
-        }
-        if (idCode == 200004) {
-            if (sweetpotatoFriesPrice > 0) {
-                sweetpotatoFriesPrice = 0;
-                cancel = true;
-            }
-        }
-        if (idCode == 300001) {
-            if (burgerSteakPrice > 0) {
-                burgerSteakPrice = 0;
-                cancel = true;
-            }
-        }
-        if (idCode == 300002) {
-            if (burgerSteak2Price > 0) {
-                burgerSteak2Price = 0;
-                cancel = true;
-            }
-        }
-        if (idCode == 300003) {
-            if (burgSteakCMPrice > 0) {
-                burgSteakCMPrice = 0;
-                cancel = true;
-            }
-        }
-        if (idCode == 300004) {
-            if (burgSteak2CMPrice > 0) {
-                burgSteak2CMPrice = 0;
-                cancel = true;
-            }
-        }
-        if (idCode == 400001) {
-            if (regularCokePrice > 0) {
-                regularCokePrice = 0;
-                cancel = true;
-            }
-        }
-        if (idCode == 400002) {
-            if (largeCokePrice > 0) {
-                largeCokePrice = 0;
-                cancel = true;
-            }
-        }
-        if (idCode == 400003) {
-            if (regularIcedTeaPrice > 0) {
-                regularIcedTeaPrice = 0;
-                cancel = true;
-            }
-        }
-        if (idCode == 400004) {
-            if (largeIcedTeaPrice > 0) {
-                largeIcedTeaPrice = 0;
-                cancel = true;
-            }
-        }
-        if (idCode == 400005) {
-            if (bottomlessIcedTeaPrice > 0) {
-                bottomlessIcedTeaPrice = 0;
-                cancel = true;
-            }
-        }
-
-        if (cancel == true) {
-            receiptArea.setText(receipt);
-            totalPrice = classicBurgerPrice + chickenBurgerPrice + cheeseBurgerPrice + veggieBurgerPrice + doublePattyBurgerPrice + triplePattyBurgerPrice + eggBaconBurgerPrice + supremeBurgerPrice;
-            totalPrice = totalPrice + classicFriesPrice + chunkyFriesPrice + shoestringFriesPrice + sweetpotatoFriesPrice;
-            totalPrice = totalPrice + burgerSteakPrice + burgerSteak2Price + burgSteakCMPrice + burgSteak2CMPrice;
-            totalPrice = totalPrice + regularCokePrice + largeCokePrice + regularIcedTeaPrice + largeIcedTeaPrice + bottomlessIcedTeaPrice;
-
-            //receiptArea.setText("**************************************************\n");
-            //receiptArea.setText(receiptArea.getText() + "*                          SUABURGERS                          *\n");
-            //receiptArea.setText(receiptArea.getText() + "**************************************************\n");
-            if (classicBurgerPrice > 0) {
-                classicBurgerReceipt = "\nClassic Burger\t\t\t" + classicBurgerPrice;
-                receiptArea.setText(receiptArea.getText() + classicBurgerReceipt);
-                
-            }
-
-            if (chickenBurgerPrice > 0) {
-                chickenBurgerReceipt = "\nChicken Brgr\t\t\t" + chickenBurgerPrice;
-                receiptArea.setText(receiptArea.getText() + chickenBurgerReceipt);
-                
-            }
-
-            if (cheeseBurgerPrice > 0) {
-                cheeseBurgerReceipt = "\nCheese Brgr\t\t\t" + cheeseBurgerPrice;
-                receiptArea.setText(receiptArea.getText() + cheeseBurgerReceipt);
-                
-            }
-
-            if (veggieBurgerPrice > 0) {
-                veggieBurgerReceipt = "\nVeggie Burger\t\t\t" + veggieBurgerPrice;
-                receiptArea.setText(receiptArea.getText() + veggieBurgerReceipt);
-                
-            }
-
-            if (doublePattyBurgerPrice > 0) {
-                doublePattyBurgerReceipt = "\nDouble Patty Burger\t\t" + doublePattyBurgerPrice;
-                receiptArea.setText(receiptArea.getText() + doublePattyBurgerReceipt);
-                
-            }
-
-            if (triplePattyBurgerPrice > 0) {
-                triplePattyBurgerReceipt = "\nTriple Patty Burger\t\t" + triplePattyBurgerPrice;
-                receiptArea.setText(receiptArea.getText() + triplePattyBurgerReceipt);
-            }
-
-            if (eggBaconBurgerPrice > 0) {
-                eggBaconBurgerReceipt = "\nEgg Bacon Burger\t\t" + eggBaconBurgerPrice;
-                receiptArea.setText(receiptArea.getText() + eggBaconBurgerReceipt);
-            }
-
-            if (supremeBurgerPrice > 0) {
-                supremeBurgerReceipt = "\nSupreme Burger\t\t" + supremeBurgerPrice;
-                receiptArea.setText(receiptArea.getText() + supremeBurgerReceipt);
-            }
-
-            if (classicFriesPrice > 0) {
-                classicFriesReceipt = "\nClassic Fries\t\t\t" + classicFriesPrice;
-                receiptArea.setText(receiptArea.getText() + classicFriesReceipt);
-            }
-
-            if (chunkyFriesPrice > 0) {
-                chunkyFriesReceipt = "\nChunky Fries\t\t\t" + chunkyFriesPrice;
-                receiptArea.setText(receiptArea.getText() + chunkyFriesReceipt);
-            }
-
-            if (shoestringFriesPrice > 0) {
-                shoestringFriesReceipt = "\nShoeString Fries\t\t" + shoestringFriesPrice;
-                receiptArea.setText(receiptArea.getText() + shoestringFriesReceipt);
-            }
-
-            if (sweetpotatoFriesPrice > 0) {
-                sweetpotatoFriesReceipt = "\nSweet Potato Fries\t\t" + sweetpotatoFriesPrice;
-                receiptArea.setText(receiptArea.getText() + sweetpotatoFriesReceipt);
-            }
-
-            if (burgerSteakPrice > 0) {
-                burgSteakReceipt = "\nBurger Steak\t\t\t" + burgerSteakPrice;
-                receiptArea.setText(receiptArea.getText() + burgSteakReceipt);
-            }
-
-            if (burgerSteak2Price > 0) {
-                burgSteak2Receipt = "\n2 pcs. Burger Steak\t\t" + burgerSteak2Price;
-                receiptArea.setText(receiptArea.getText() + burgSteak2Receipt);
-            }
-
-            if (burgSteakCMPrice > 0) {
-                burgSteakCMReceipt = "\nBurger Steak Combo Meal\t\t" + burgSteakCMPrice;
-                receiptArea.setText(receiptArea.getText() + burgSteakCMReceipt);
-            }
-
-            if (burgSteak2CMPrice > 0) {
-                burgSteakCM2Receipt = "\n2pc BurgSteak Combo Meal\t\t" + burgSteak2CMPrice;
-                receiptArea.setText(receiptArea.getText() + burgSteakCM2Receipt);
-            }
-
-            if (regularCokePrice > 0) {
-                regularCokeReceipt = "\nRegular Coke\t\t\t" + regularCokePrice;
-                receiptArea.setText(receiptArea.getText() + regularCokeReceipt);
-            }
-            if (largeCokePrice > 0) {
-                largeCokeReceipt = "\nLarge Coke\t\t\t" + largeCokePrice;
-                receiptArea.setText(receiptArea.getText() + largeCokeReceipt);
-            }
-            if (regularIcedTeaPrice > 0) {
-                regularIcedTeaReceipt = "\nRegular Iced Tea\t\t" + regularIcedTeaPrice;
-                receiptArea.setText(receiptArea.getText() + regularIcedTeaReceipt);
-            }
-            if (largeIcedTeaPrice > 0) {
-                largeIcedTeaReceipt = "\nLarge IcdTea\t\t\t" + largeIcedTeaPrice;
-                receiptArea.setText(receiptArea.getText() + largeIcedTeaReceipt);
-            }
-
-            if (bottomlessIcedTeaPrice > 0) {
-                bottomlessIcedTeaReceipt = "\nBottomless Iced Tea\t\t" + bottomlessIcedTeaPrice;
-                receiptArea.setText(receiptArea.getText() + bottomlessIcedTeaReceipt);
-            }
-
-            if (discountComboBox.getSelectedIndex() == 1 || discountComboBox.getSelectedIndex() == 2) {
-                totalPrice = totalPrice - (totalPrice * .20);
-                String totalPriceFieldText = Double.toString(totalPrice);
-                totalPriceField.setText(totalPriceFieldText);
-
-            } else {
-                String totalPriceFieldText = Double.toString(totalPrice);
-                totalPriceField.setText(totalPriceFieldText);
-            }
-        }
-
-
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void cancelOrderIDCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelOrderIDCodeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cancelOrderIDCodeActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
@@ -2371,7 +1949,21 @@ public class Cashier extends javax.swing.JFrame {
     }//GEN-LAST:event_discountComboBoxItemStateChanged
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        if(paid==true){
+            try {
+            // TODO add your handling code here:
+            receiptArea.print();
+        } catch (PrinterException ex) {
+            Logger.getLogger(Cashier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        receiptArea.setText(receipt);
+           changeTextField.setText("");
+           paid = false;
+        }else{
+            JOptionPane.showMessageDialog(null, "The pending order is not yet paid!");
+        }
+        
+        
     }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
@@ -2437,7 +2029,6 @@ public class Cashier extends javax.swing.JFrame {
     private javax.swing.JSpinner burgerSteakSpinner2;
     private javax.swing.JPanel burgersPane;
     private javax.swing.JButton calculateButton;
-    private javax.swing.JTextField cancelOrderIDCode;
     private javax.swing.JTextField changeTextField;
     private javax.swing.JSpinner cheeseBurgerSpinner;
     private javax.swing.JSpinner chickenBurgerSpinner;
@@ -2451,9 +2042,7 @@ public class Cashier extends javax.swing.JFrame {
     private javax.swing.JSpinner eggBaconBurgerSpinner;
     private javax.swing.JPanel friesPane;
     private javax.swing.JScrollPane friesScrollPane;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -2486,8 +2075,6 @@ public class Cashier extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
