@@ -5,6 +5,9 @@ import java.awt.event.KeyEvent;
 import java.awt.print.PrinterException;
 import java.io.*;
 import java.io.FileReader;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDialog;
@@ -1700,7 +1703,7 @@ public class Cashier extends javax.swing.JFrame {
 
         } else {
             if (totalPrice > 0) {
-                JOptionPane.showMessageDialog(null, "There is a pending Order!");
+                JOptionPane.showMessageDialog(null, "There is a pending Order!\nUse Manual Order to add more!");
             } else {
                 pending = false;
             }
@@ -1720,8 +1723,8 @@ public class Cashier extends javax.swing.JFrame {
         if (pending) {
             pay = Double.parseDouble(ammountPaid.getText());
         }
-
-        if ((discount < pay && disc != true ) || (totalPrice < pay && disc == true) ) {
+        if(pending != false ){
+            if ((discount > pay && disc == true ) || (totalPrice > pay && disc != true) ) {
             JOptionPane.showMessageDialog(null, "ERROR: Ammount Paid is less than Total Price\nPlease Try again with the right ammount.");
         } else {
             pending = false;
@@ -1749,6 +1752,13 @@ public class Cashier extends javax.swing.JFrame {
             receiptArea.setText(receiptArea.getText() + ammoundPaidReceipt);
             receiptArea.setText(receiptArea.getText() + totalChangeReceipt);
             String totalChangeText = Double.toString(totalChange);
+            Date date = new Date();
+            String strDateFormat = "hh:mm:ss a";
+            DateFormat dateFormat = new SimpleDateFormat(strDateFormat);
+            String formattedDate= dateFormat.format(date);
+            receiptArea.setText(receiptArea.getText() + "\n\n\n\tTIME: "+formattedDate);
+            receiptArea.setText(receiptArea.getText() + "\n\tDATE: " +java.time.LocalDate.now());
+            
             disc=false;
             changeTextField.setText(totalChangeText);
             totalPriceField.setText("");
@@ -1776,6 +1786,10 @@ public class Cashier extends javax.swing.JFrame {
             totalPrice=0;
             ammountPaid.setText("");
         }
+        }else{
+            JOptionPane.showMessageDialog(null, "There is no pending Order!");
+        }
+        
 
 
     }//GEN-LAST:event_jButton4ActionPerformed
