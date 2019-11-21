@@ -1207,7 +1207,7 @@ public class Cashier extends javax.swing.JFrame {
                 jButton1KeyPressed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 80, 110, 40));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 80, 110, 40));
 
         totalPriceField.setEditable(false);
         totalPriceField.addActionListener(new java.awt.event.ActionListener() {
@@ -1217,7 +1217,7 @@ public class Cashier extends javax.swing.JFrame {
         });
         jPanel1.add(totalPriceField, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 220, 100, -1));
 
-        jLabel14.setFont(new java.awt.Font("Bahnschrift", 1, 13)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("DISCOUNT:");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 150, -1, -1));
@@ -1229,12 +1229,12 @@ public class Cashier extends javax.swing.JFrame {
         });
         jPanel1.add(ammountPaid, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 280, 100, -1));
 
-        jLabel15.setFont(new java.awt.Font("Bahnschrift", 1, 13)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("AMOUNT PAID");
+        jLabel15.setText("AMOUNT PAID:");
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 260, -1, 20));
 
-        jLabel16.setFont(new java.awt.Font("Bahnschrift", 1, 13)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("CHANGE:");
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 320, -1, -1));
@@ -1259,7 +1259,7 @@ public class Cashier extends javax.swing.JFrame {
                 calculateButtonKeyPressed(evt);
             }
         });
-        jPanel1.add(calculateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 190, 110, 50));
+        jPanel1.add(calculateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 220, 110, 20));
 
         jButton4.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         jButton4.setText("PAY");
@@ -1274,7 +1274,7 @@ public class Cashier extends javax.swing.JFrame {
                 jButton4KeyPressed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 310, 70, 40));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 280, 70, 20));
 
         jButton2.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         jButton2.setText("CLEAR");
@@ -1285,7 +1285,7 @@ public class Cashier extends javax.swing.JFrame {
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 670, -1, -1));
 
-        jLabel23.setFont(new java.awt.Font("Bahnschrift", 1, 13)); // NOI18N
+        jLabel23.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("TOTAL PRICE:");
         jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 200, -1, -1));
@@ -1537,6 +1537,7 @@ public class Cashier extends javax.swing.JFrame {
     private void calculateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateButtonActionPerformed
         // TODO add your handling code here:
         changeTextField.setText("");
+        calculateDisc();
         if (pending == false || ((pending == true) && totalPrice == 0)) {
             pending = true;
             
@@ -1691,7 +1692,7 @@ public class Cashier extends javax.swing.JFrame {
 
             }
             
-            if (discountComboBox.getSelectedIndex() == 1 || discountComboBox.getSelectedIndex() == 2) {
+            if (disc == true) {
                 String totalPriceFieldText = Double.toString(discount);
                 totalPriceField.setText(totalPriceFieldText);
             } else {
@@ -2330,7 +2331,7 @@ public class Cashier extends javax.swing.JFrame {
              
         }
         
-        if (discountComboBox.getSelectedIndex() == 1 || discountComboBox.getSelectedIndex() == 2) {
+        if (disc==true) {
                 String totalPriceFieldText = Double.toString(discount);
                 totalPriceField.setText(totalPriceFieldText);
             } else {
@@ -2408,6 +2409,22 @@ public class Cashier extends javax.swing.JFrame {
         });
     }
 
+    void calculateDisc(){
+         discount = totalPrice;
+        if (discountComboBox.getSelectedIndex() == 1 || discountComboBox.getSelectedIndex() == 2) {
+            disc = true;
+            
+                discount = totalPrice - (totalPrice * .20);
+                String totalPriceFieldText = Double.toString(discount);
+                totalPriceField.setText(totalPriceFieldText);
+
+            } else {
+            disc=false;
+                String totalPriceFieldText = Double.toString(totalPrice);
+                totalPriceField.setText(totalPriceFieldText);
+            }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel afafasfasfa;
     private javax.swing.JTextField ammountPaid;
