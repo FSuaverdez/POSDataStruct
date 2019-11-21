@@ -1687,6 +1687,14 @@ public class Cashier extends javax.swing.JFrame {
                 receiptArea.setText(receiptArea.getText() + bottomlessIcedTeaReceipt);
 
             }
+            
+            if (discountComboBox.getSelectedIndex() == 1 || discountComboBox.getSelectedIndex() == 2) {
+                String totalPriceFieldText = Double.toString(discount);
+                totalPriceField.setText(totalPriceFieldText);
+            } else {
+                String totalPriceFieldText = Double.toString(totalPrice);
+                totalPriceField.setText(totalPriceFieldText);
+            }
 
 
 
@@ -2307,6 +2315,14 @@ public class Cashier extends javax.swing.JFrame {
                 }
              
         }
+        
+        if (discountComboBox.getSelectedIndex() == 1 || discountComboBox.getSelectedIndex() == 2) {
+                String totalPriceFieldText = Double.toString(discount);
+                totalPriceField.setText(totalPriceFieldText);
+            } else {
+                String totalPriceFieldText = Double.toString(totalPrice);
+                totalPriceField.setText(totalPriceFieldText);
+            }
                
 
 
