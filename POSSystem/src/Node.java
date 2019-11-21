@@ -79,3 +79,96 @@ class NodeT {
     }
 
 }
+
+
+class BinaryTree {
+    NodeT root;
+
+    public void insert(String productID, String productName, int itemCode, double price) {
+
+        NodeT newNode = new NodeT(productID, productName, itemCode, price);
+
+        if (root == null) {
+            root = newNode;
+        } else {
+            NodeT temp = root;
+
+            NodeT parent;
+            while (true) {
+                parent = temp;
+
+                if (itemCode < temp.itemCode) {
+                    temp = temp.left;
+
+                    if (temp == null) {
+                        parent.left = newNode;
+                        return;
+                    }
+                } else {
+                    temp = temp.right;
+
+                    if (temp == null) {
+                        parent.right = newNode;
+                        return;
+                    }
+                }
+
+            }
+        }
+    }
+
+    public double searchPrice(int itemCode) {
+
+            NodeT temp = root;
+            
+            while (true) {
+                if (temp.itemCode == itemCode) {
+                        return temp.price;
+                    }
+                
+                if (itemCode < temp.itemCode) {
+                    temp = temp.left;
+
+                    if (temp.itemCode == itemCode) {
+                        return temp.price;
+                    }
+                } else {
+                    temp = temp.right;
+
+                    if (temp.itemCode == itemCode) {
+                        return temp.price;
+                    }
+                }
+
+            }
+        }
+    
+
+    public String searchName(int itemCode) {
+
+        NodeT temp = root;
+
+        
+        while (true) {
+            
+            if (temp.itemCode == itemCode) {
+                    return temp.productName;
+                }
+            
+            if (itemCode < temp.itemCode) {
+                temp = temp.left;
+
+                if (temp.itemCode == itemCode) {
+                    return temp.productName;
+                }
+            } else {
+                temp = temp.right;
+
+                if (temp.itemCode == itemCode) {
+                    return temp.productName;
+                }
+            }
+
+        }
+    }
+}
