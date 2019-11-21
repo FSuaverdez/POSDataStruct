@@ -39,20 +39,21 @@ public class Cashier extends javax.swing.JFrame {
         list.insert("F02", "Chunky Fries", 200002, 40.00);
         list.insert("F03", "ShoeString Fries", 200003, 40.00);
         list.insert("F04", "Sweet Potato Fries", 200004, 40.00);
-        list.insert("RC01", "Burger Steak", 101010, 50.00);
-        list.insert("RC02", "2pc Burger Steak", 202020, 80.00);
-        list.insert("CRC01", "BurgSteak Combo Meal", 303030, 100.00);
-        list.insert("CRC02", "2pc BurgSteak Combo Meal", 404040, 160.00);
-        list.insert("D1", "Regular Coke", 01010, 20.00);
-        list.insert("D2", "Large Coke", 02020, 70.00);
-        list.insert("D3", "Regular Iced Tea", 03030, 40.00);
-        list.insert("D4", "Large Iced Tea", 04040, 70.00);
-        list.insert("D5", "Bottomless Iced Tea", 05050, 70.00);
+        list.insert("RC01", "Burger Steak", 300001, 50.00);
+        list.insert("RC02", "2pc Burger Steak", 300002, 80.00);
+        list.insert("CRC01", "BurgSteak Combo Meal", 300003, 100.00);
+        list.insert("CRC02", "2pc BurgSteak Combo Meal", 300004, 160.00);
+        list.insert("D1", "Regular Coke", 400001, 20.00);
+        list.insert("D2", "Large Coke", 400002, 70.00);
+        list.insert("D3", "Regular Iced Tea", 400003, 40.00);
+        list.insert("D4", "Large Iced Tea", 400004, 70.00);
+        list.insert("D5", "Bottomless Iced Tea", 400005, 70.00);
 
     }
     boolean order = false;
     double discount;
     boolean pending = false;
+    boolean disc = false;
     LinkedList list = new LinkedList();
     double totalPrice = 0;
     double totalChange = 0;
@@ -122,6 +123,14 @@ public class Cashier extends javax.swing.JFrame {
         jPanel27 = new javax.swing.JPanel();
         jPanel28 = new javax.swing.JPanel();
         jPanel29 = new javax.swing.JPanel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
         friesScrollPane = new javax.swing.JScrollPane();
         friesPane = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -137,6 +146,10 @@ public class Cashier extends javax.swing.JFrame {
         shoeStringSpinner = new javax.swing.JSpinner();
         sweetPotatoSpinner = new javax.swing.JSpinner();
         jLabel22 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
         riceMealsScrollPane = new javax.swing.JScrollPane();
         riceMeals = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -152,6 +165,10 @@ public class Cashier extends javax.swing.JFrame {
         jPanel10 = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
         burgSteakCMSpinner = new javax.swing.JSpinner();
+        jLabel51 = new javax.swing.JLabel();
+        jLabel52 = new javax.swing.JLabel();
+        jLabel53 = new javax.swing.JLabel();
+        jLabel54 = new javax.swing.JLabel();
         drinksScrollPane = new javax.swing.JScrollPane();
         drinksPane = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
@@ -170,6 +187,11 @@ public class Cashier extends javax.swing.JFrame {
         jPanel23 = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
         bottomlessIcedTeaSpinner = new javax.swing.JSpinner();
+        jLabel55 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
+        jLabel58 = new javax.swing.JLabel();
+        jLabel59 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         totalPriceField = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
@@ -618,6 +640,30 @@ public class Cashier extends javax.swing.JFrame {
 
         burgersPane.add(jPanel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 720, -1, -1));
 
+        jLabel39.setText("100002");
+        burgersPane.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, -1, -1));
+
+        jLabel41.setText("100005");
+        burgersPane.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, -1, -1));
+
+        jLabel42.setText("100006");
+        burgersPane.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 280, -1, -1));
+
+        jLabel43.setText("100007");
+        burgersPane.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 490, -1, -1));
+
+        jLabel44.setText("100008");
+        burgersPane.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 700, -1, -1));
+
+        jLabel45.setText("100004");
+        burgersPane.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 700, -1, -1));
+
+        jLabel46.setText("100003");
+        burgersPane.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 490, -1, -1));
+
+        jLabel40.setText("100001");
+        burgersPane.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, -1, -1));
+
         burgerScrollPane.setViewportView(burgersPane);
 
         jPanel1.add(burgerScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 670, 513));
@@ -725,6 +771,14 @@ public class Cashier extends javax.swing.JFrame {
         jLabel22.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
         jLabel22.setText("Sweet Potato Fries");
 
+        jLabel47.setText("200001");
+
+        jLabel48.setText("100001");
+
+        jLabel49.setText("200002");
+
+        jLabel50.setText("200004");
+
         javax.swing.GroupLayout friesPaneLayout = new javax.swing.GroupLayout(friesPane);
         friesPane.setLayout(friesPaneLayout);
         friesPaneLayout.setHorizontalGroup(
@@ -732,9 +786,6 @@ public class Cashier extends javax.swing.JFrame {
             .addGroup(friesPaneLayout.createSequentialGroup()
                 .addGap(87, 87, 87)
                 .addGroup(friesPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(friesPaneLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(classicFriesSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(friesPaneLayout.createSequentialGroup()
                         .addGap(13, 13, 13)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -747,7 +798,12 @@ public class Cashier extends javax.swing.JFrame {
                             .addGroup(friesPaneLayout.createSequentialGroup()
                                 .addGap(12, 12, 12)
                                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel17))))
+                            .addComponent(jLabel17)))
+                    .addGroup(friesPaneLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addGroup(friesPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel49)
+                            .addComponent(classicFriesSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(173, 173, 173)
                 .addGroup(friesPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(friesPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -770,20 +826,32 @@ public class Cashier extends javax.swing.JFrame {
                                 .addComponent(jLabel21)
                                 .addGap(10, 10, 10))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, friesPaneLayout.createSequentialGroup()
-                                .addComponent(shoeStringSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(friesPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel50)
+                                    .addComponent(shoeStringSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(60, 60, 60)))))
                 .addGap(117, 117, 117))
             .addGroup(friesPaneLayout.createSequentialGroup()
                 .addGap(234, 234, 234)
                 .addComponent(jLabel8)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(friesPaneLayout.createSequentialGroup()
+                .addGap(133, 133, 133)
+                .addComponent(jLabel47)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel48)
+                .addGap(175, 175, 175))
         );
         friesPaneLayout.setVerticalGroup(
             friesPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(friesPaneLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel8)
-                .addGap(35, 35, 35)
+                .addGap(12, 12, 12)
+                .addGroup(friesPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel47)
+                    .addComponent(jLabel48))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(friesPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(friesPaneLayout.createSequentialGroup()
                         .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -791,7 +859,9 @@ public class Cashier extends javax.swing.JFrame {
                         .addComponent(jLabel21)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(shoeStringSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49)
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel50)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel22)
@@ -803,7 +873,9 @@ public class Cashier extends javax.swing.JFrame {
                         .addComponent(jLabel17)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(classicFriesSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49)
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel49)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel20)
@@ -937,6 +1009,18 @@ public class Cashier extends javax.swing.JFrame {
         });
         riceMeals.add(burgSteakCMSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 240, 60, -1));
 
+        jLabel51.setText("300002");
+        riceMeals.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, -1, -1));
+
+        jLabel52.setText("300003");
+        riceMeals.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, -1, -1));
+
+        jLabel53.setText("300001");
+        riceMeals.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, -1, -1));
+
+        jLabel54.setText("300003");
+        riceMeals.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 310, -1, -1));
+
         riceMealsScrollPane.setViewportView(riceMeals);
 
         jPanel1.add(riceMealsScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 670, 513));
@@ -994,11 +1078,11 @@ public class Cashier extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        drinksPane.add(jPanel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, -1, -1));
+        drinksPane.add(jPanel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, -1, -1));
 
         jLabel29.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
         jLabel29.setText("Large Coke");
-        drinksPane.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, -1, -1));
+        drinksPane.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, -1, -1));
 
         largeCokeSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         largeCokeSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -1006,7 +1090,7 @@ public class Cashier extends javax.swing.JFrame {
                 largeCokeSpinnerStateChanged(evt);
             }
         });
-        drinksPane.add(largeCokeSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 430, 60, -1));
+        drinksPane.add(largeCokeSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 460, 60, -1));
 
         jPanel20.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
@@ -1048,11 +1132,11 @@ public class Cashier extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        drinksPane.add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, -1, -1));
+        drinksPane.add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, -1, -1));
 
         jLabel31.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
         jLabel31.setText("Large Iced Tea");
-        drinksPane.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 400, -1, -1));
+        drinksPane.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 430, -1, -1));
 
         largeIcedTeaSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         largeIcedTeaSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -1060,7 +1144,7 @@ public class Cashier extends javax.swing.JFrame {
                 largeIcedTeaSpinnerStateChanged(evt);
             }
         });
-        drinksPane.add(largeIcedTeaSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 430, 60, -1));
+        drinksPane.add(largeIcedTeaSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 460, 60, -1));
 
         jPanel23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
@@ -1075,11 +1159,11 @@ public class Cashier extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        drinksPane.add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 450, -1, -1));
+        drinksPane.add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 500, -1, -1));
 
         jLabel32.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
         jLabel32.setText("Bottomless Iced Tea");
-        drinksPane.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 560, -1, -1));
+        drinksPane.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 610, -1, -1));
 
         bottomlessIcedTeaSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         bottomlessIcedTeaSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -1087,7 +1171,22 @@ public class Cashier extends javax.swing.JFrame {
                 bottomlessIcedTeaSpinnerStateChanged(evt);
             }
         });
-        drinksPane.add(bottomlessIcedTeaSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 590, 60, -1));
+        drinksPane.add(bottomlessIcedTeaSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 640, 60, -1));
+
+        jLabel55.setText("400001");
+        drinksPane.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, -1, -1));
+
+        jLabel56.setText("400002");
+        drinksPane.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, -1, -1));
+
+        jLabel57.setText("400003");
+        drinksPane.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, -1, -1));
+
+        jLabel58.setText("400004");
+        drinksPane.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 300, -1, -1));
+
+        jLabel59.setText("400005");
+        drinksPane.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 480, -1, -1));
 
         drinksScrollPane.setViewportView(drinksPane);
 
@@ -1588,16 +1687,6 @@ public class Cashier extends javax.swing.JFrame {
                 receiptArea.setText(receiptArea.getText() + bottomlessIcedTeaReceipt);
 
             }
-            
-            if (discountComboBox.getSelectedIndex() == 1 || discountComboBox.getSelectedIndex() == 2) {
-                totalPrice = totalPrice - (totalPrice * .20);
-                String totalPriceFieldText = Double.toString(totalPrice);
-                totalPriceField.setText(totalPriceFieldText);
-
-            } else {
-                String totalPriceFieldText = Double.toString(totalPrice);
-                totalPriceField.setText(totalPriceFieldText);
-            }
 
 
 
@@ -1624,18 +1713,18 @@ public class Cashier extends javax.swing.JFrame {
             pay = Double.parseDouble(ammountPaid.getText());
         }
 
-        if (totalPrice > pay && discount > pay) {
+        if (totalPrice > pay && disc!= true) {
             JOptionPane.showMessageDialog(null, "ERROR: Ammount Paid is less than Total Price\nPlease Try again with the right ammount.");
         } else {
             pending = false;
             order = false;
             if (discountComboBox.getSelectedIndex() == 1 || discountComboBox.getSelectedIndex() == 2) {
-                totalPrice = totalPrice - (totalPrice * .20);
+                totalPrice=discount;
                 String totalPriceReceipt = "\n\nTotal Amount (20%)Discount\t\t" + discount;
                 receiptArea.setText(receiptArea.getText() + totalPriceReceipt);
                 String totalPriceFieldText = Double.toString(totalPrice);
                 totalPriceField.setText(totalPriceFieldText);
-
+                
             } else {
                 String totalPriceReceipt = "\n\nTotal Amount\t\t\t" + totalPrice;
                 receiptArea.setText(receiptArea.getText() + totalPriceReceipt);
@@ -1643,13 +1732,16 @@ public class Cashier extends javax.swing.JFrame {
                 totalPriceField.setText(totalPriceFieldText);
             }
             discountComboBox.setSelectedIndex(0);
-            totalChange = Double.parseDouble(ammountPaid.getText()) - totalPrice;
+
+                totalChange = Double.parseDouble(ammountPaid.getText()) - totalPrice;
+            
+            
             String ammoundPaidReceipt = "\nAmmount Paid\t\t\t" + Double.parseDouble(ammountPaid.getText());
             String totalChangeReceipt = "\nChange\t\t\t" + totalChange;
             receiptArea.setText(receiptArea.getText() + ammoundPaidReceipt);
             receiptArea.setText(receiptArea.getText() + totalChangeReceipt);
             String totalChangeText = Double.toString(totalChange);
-            
+            disc=false;
             changeTextField.setText(totalChangeText);
             totalPriceField.setText("");
             classicBurgerSpinner.setValue(0);
@@ -2214,15 +2306,6 @@ public class Cashier extends javax.swing.JFrame {
                     receiptArea.setText(receiptArea.getText() + "\n" + name + "\t\t" + price);
                 }
              
-            if (discountComboBox.getSelectedIndex() == 1 || discountComboBox.getSelectedIndex() == 2) {
-                totalPrice = totalPrice - (totalPrice * .20);
-                String totalPriceFieldText = Double.toString(totalPrice);
-                totalPriceField.setText(totalPriceFieldText);
-
-            } else {
-                String totalPriceFieldText = Double.toString(totalPrice);
-                totalPriceField.setText(totalPriceFieldText);
-            }
         }
                
 
@@ -2240,11 +2323,14 @@ public class Cashier extends javax.swing.JFrame {
         // TODO add your handling code here:
         discount = totalPrice;
         if (discountComboBox.getSelectedIndex() == 1 || discountComboBox.getSelectedIndex() == 2) {
+            disc = true;
+            
                 discount = totalPrice - (totalPrice * .20);
                 String totalPriceFieldText = Double.toString(discount);
                 totalPriceField.setText(totalPriceFieldText);
 
             } else {
+            disc=false;
                 String totalPriceFieldText = Double.toString(totalPrice);
                 totalPriceField.setText(totalPriceFieldText);
             }
@@ -2460,8 +2546,29 @@ class BinaryTree {
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
