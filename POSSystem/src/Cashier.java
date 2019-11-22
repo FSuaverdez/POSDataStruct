@@ -16,7 +16,7 @@ import javax.swing.border.Border;
 
 
 public class Cashier extends javax.swing.JFrame {
-
+    //declaring linkedlist and inserting all products and also setting options for some interfaces
     public Cashier() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -54,6 +54,7 @@ public class Cashier extends javax.swing.JFrame {
         list.insert("D5", "Bottomless Iced Tea", 400005, 70.00);
 
     }
+    //declaring some values to be used to collect data and do calculations and also for conditional statements
     boolean clear = false;
     boolean order = false;
     double discount;
@@ -1377,13 +1378,13 @@ public class Cashier extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    //when logout button is clicked the cashier gui will be closed and the login page will be opened
     private void logOutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOutButtonMouseClicked
 
         new Login().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_logOutButtonMouseClicked
-
+//when burger button is clicked other pane will be closed and burger pane will be opened
     private void jPanel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MousePressed
         // TODO add your handling code here:
         burgerScrollPane.setVisible(false);
@@ -1393,7 +1394,7 @@ public class Cashier extends javax.swing.JFrame {
         burgerScrollPane.setVisible(true);
 
     }//GEN-LAST:event_jPanel4MousePressed
-
+//when fries button is clicked other pane will be closed and fries pane will be opened
     private void jPanel14MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel14MousePressed
         // TODO add your handling code here:
         burgerScrollPane.setVisible(false);
@@ -1402,7 +1403,7 @@ public class Cashier extends javax.swing.JFrame {
         drinksScrollPane.setVisible(false);
         friesScrollPane.setVisible(true);
     }//GEN-LAST:event_jPanel14MousePressed
-
+//when rice meals button is clicked other pane will be closed and rice meals pane will be opened
     private void jPanel15MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel15MousePressed
         // TODO add your handling code here:
         burgerScrollPane.setVisible(false);
@@ -1411,7 +1412,7 @@ public class Cashier extends javax.swing.JFrame {
         drinksScrollPane.setVisible(false);
         riceMealsScrollPane.setVisible(true);
     }//GEN-LAST:event_jPanel15MousePressed
-
+//when drinks button is clicked other pane will be closed and drinks pane will be opened
     private void jPanel16MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel16MousePressed
         // TODO add your handling code here:
         burgerScrollPane.setVisible(false);
@@ -1420,7 +1421,7 @@ public class Cashier extends javax.swing.JFrame {
         drinksScrollPane.setVisible(false);
         drinksScrollPane.setVisible(true);
     }//GEN-LAST:event_jPanel16MousePressed
-
+//for every spinner when a spinner value changed it will automatically calculate the price for the product
     private void classicBurgerSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_classicBurgerSpinnerStateChanged
         // TODO add your handling code here:
 
@@ -1448,6 +1449,9 @@ public class Cashier extends javax.swing.JFrame {
             + "\n                           SUABURGERS"
             + "\n***************************************************************\n";
 
+    // when clicked the program will check if there is a pending order if not the function will add all the prices collected from the spinners
+    // and it will be showed in the receipt area
+    // but if there is a pending order the program will throw an error saying use manual order or finish the pending order
     private void calculateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateButtonActionPerformed
         // TODO add your handling code here:
         changeTextField.setText("");
@@ -1637,12 +1641,15 @@ public class Cashier extends javax.swing.JFrame {
     private void calculateButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calculateButtonKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_calculateButtonKeyPressed
-
+    // this pay button will check all the conditions like if there is a name entered by the cashier or
+    // if the ammount entered is not enough for the total order price
+    // this will also print the total ammount and total change in the receipt
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         double pay = 0;
         
         if (pending) {
+            
             pay = Double.parseDouble(ammountPaid.getText());
         }
         if(checkName()){
@@ -1788,7 +1795,7 @@ public class Cashier extends javax.swing.JFrame {
         qty = (int) supremeBurgerSpinner.getValue();
         supremeBurgerPrice = supremeBurgerPrice * qty;
     }//GEN-LAST:event_supremeBurgerSpinnerStateChanged
-
+//this will clear the receipt area if there are no pending orders
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if(pending==true || order == true){
             JOptionPane.showMessageDialog(null,"ERROR: Cannot clear if there are pending orders.");
@@ -1902,7 +1909,10 @@ public class Cashier extends javax.swing.JFrame {
         qty = (int) bottomlessIcedTeaSpinner.getValue();
         bottomlessIcedTeaPrice = bottomlessIcedTeaPrice * qty;
     }//GEN-LAST:event_bottomlessIcedTeaSpinnerStateChanged
-
+    //manual order function
+    // this function declares and inserts the binary tree
+    // once the user entered the itemCode it will use binary search tree to search for price and name
+    // adding using this will also add the product to the receipt are
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         if(clear==true){
@@ -1995,7 +2005,9 @@ public class Cashier extends javax.swing.JFrame {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_manualOrderIDCodeKeyPressed
-
+    // this function will detect the changes in the discount combBox
+    // if the chosen item is eligible for discount
+    // the price will automatically be changed to the discounted price
     private void discountComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_discountComboBoxItemStateChanged
         // TODO add your handling code here:
         discount = totalPrice;
@@ -2012,7 +2024,7 @@ public class Cashier extends javax.swing.JFrame {
                 totalPriceField.setText(totalPriceFieldText);
             }
     }//GEN-LAST:event_discountComboBoxItemStateChanged
-
+    // this function will print the receipt unless there are pending orders
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         if(paid==true){
             try {
@@ -2030,7 +2042,12 @@ public class Cashier extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButton6ActionPerformed
-
+    // this function will search for new drive inserted to the system
+    // once found it will try to find a program named "suaburgers.txt"
+    // it will compare the text inside the file to the saved text inside the system
+    // if they are equal the program will delete all the pending orders and will reset
+    // all conditions
+    // there is also a 15 seconds countdown and if finished the void will cancel
     private void voidOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voidOrderActionPerformed
         // TODO add your handling code here:
             JOptionPane jop = new JOptionPane();
@@ -2080,6 +2097,7 @@ public class Cashier extends javax.swing.JFrame {
                                     String password = "ourburgeristhebest";
                                     if (text.equals(password)) {
                                         totalPriceField.setText("");
+                                        clear = false;
                                         classicBurgerSpinner.setValue(0);
                                         bottomlessIcedTeaSpinner.setValue(0);
                                         largeIcedTeaSpinner.setValue(0);
@@ -2144,10 +2162,11 @@ public class Cashier extends javax.swing.JFrame {
     private void voidOrderKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_voidOrderKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_voidOrderKeyPressed
-
+    
     private void firstNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_firstNameKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_firstNameKeyPressed
+    // this functions checks if there are names inserted by the cashier operator
     boolean checkName(){
         if((!firstName.getText().isEmpty() && (!lastName.getText().isEmpty()))){
             return true;
@@ -2196,7 +2215,7 @@ public class Cashier extends javax.swing.JFrame {
             }
         });
     }
-
+//this will calculate the discount for the orders
     void calculateDisc(){
          discount = totalPrice;
         if (discountComboBox.getSelectedIndex() == 1 || discountComboBox.getSelectedIndex() == 2) {
