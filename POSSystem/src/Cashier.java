@@ -1345,11 +1345,12 @@ public class Cashier extends javax.swing.JFrame {
         // TODO add your handling code here:
         changeTextField.setText("");
         
-        calculateDisc();
+        
             totalPrice = totalPrice + classicBurgerPrice + chickenBurgerPrice + cheeseBurgerPrice + veggieBurgerPrice + doublePattyBurgerPrice + triplePattyBurgerPrice + eggBaconBurgerPrice + supremeBurgerPrice;
             totalPrice = totalPrice + classicFriesPrice + chunkyFriesPrice + shoestringFriesPrice + sweetpotatoFriesPrice;
             totalPrice = totalPrice + burgerSteakPrice + burgerSteak2Price + burgSteakCMPrice + burgSteak2CMPrice;
             totalPrice = totalPrice + regularCokePrice + largeCokePrice + regularIcedTeaPrice + largeIcedTeaPrice + bottomlessIcedTeaPrice;
+            calculateDisc();
         if (totalPrice == 0) {
             pending = false;
         } else if (pending == false) {
