@@ -1,6 +1,7 @@
 
 import java.awt.Color;
 import java.awt.Dialog;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.print.PrinterException;
 import java.io.*;
@@ -11,6 +12,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 
@@ -18,7 +20,9 @@ public class Cashier extends javax.swing.JFrame {
 
     //declaring linkedlist and inserting all products and also setting options for some interfaces
     public Cashier() {
+
         initComponents();
+        setIcon();
         this.setLocationRelativeTo(null);
         burgerScrollPane.setVisible(true);
         friesScrollPane.setVisible(false);
@@ -52,6 +56,9 @@ public class Cashier extends javax.swing.JFrame {
         list.insert("D4", "Large Iced Tea", 400004, 70.00);
         list.insert("D5", "Bottomless Iced Tea", 400005, 70.00);
 
+    }
+        private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("favicon.png")));
     }
     //declaring some values to be used to collect data and do calculations and also for conditional statements
     boolean clear = false;

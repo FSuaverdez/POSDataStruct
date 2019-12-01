@@ -1,4 +1,5 @@
 
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
@@ -19,6 +20,7 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        setIcon();
         this.setLocationRelativeTo(null);
 
     }
@@ -218,6 +220,7 @@ public class Login extends javax.swing.JFrame {
 
     private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_usernameActionPerformed
 
     /**
@@ -269,4 +272,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPasswordField password;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
+
+    private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("favicon.png")));
+    }
 }
