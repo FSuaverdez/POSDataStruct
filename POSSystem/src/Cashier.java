@@ -1930,7 +1930,8 @@ public class Cashier extends javax.swing.JFrame {
                     String text = "";
                     boolean stop = false;
                     int j = 15;
-                    jop.setMessage("Insert Flash Drive that contains void key.\nExiting in " + j + " seconds.");
+                    jop.setMessage("Insert Flash Drive that contains void key.\nExiting in " + j + " seconds.\nClick OK to stop.");
+                    
                     // init the file objects and the initial drive state
                     for (int i = 0; i < letters.length; ++i) {
                         drives[i] = new File(letters[i] + ":/");
@@ -2003,11 +2004,15 @@ public class Cashier extends javax.swing.JFrame {
                         try {
                             Thread.sleep(1000);
                             j--;
-                            jop.setMessage("Insert Flash Drive that contains void key.\nExiting in " + j + " seconds.");
+                            jop.setMessage("Insert Flash Drive that contains void key.\nExiting in " + j + " seconds.\nClick OK to stop.");
                         } catch (InterruptedException e) {
                             /* do nothing */ }
                         if (j == 0) {
                             stop = true;
+                        }
+                        if(!jop.isShowing()){
+                            stop=true;
+
                         }
                     }
 

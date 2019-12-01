@@ -174,10 +174,10 @@ public class Login extends javax.swing.JFrame {
 
     private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
         // TODO add your handling code here:
-        String pass = "noob";
-        String user = "noob";
+        String user = "suaburgers";
+        String pass = "bestburger";
 
-        if (this.password.getText().equals(pass) && username.getText().equals(user)) {
+        if (password.getText().equals(pass) && username.getText().equals(user)) {
             new Cashier().setVisible(true);
             this.dispose();
         } else {
@@ -188,8 +188,8 @@ public class Login extends javax.swing.JFrame {
     private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
         // TODO add your handling code here:
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            String pass = "noob";
-        String user = "noob";
+        String user = "suaburgers";
+        String pass = "bestburger";
 
         if (this.password.getText().equals(pass) && username.getText().equals(user)) {
             new Cashier().setVisible(true);
