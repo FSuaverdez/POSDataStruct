@@ -1968,6 +1968,7 @@ public class Cashier extends javax.swing.JFrame {
                                     if (text.equals(password)) {
                                         totalPriceField.setText("");
                                         clear = false;
+                                        discountComboBox.setSelectedIndex(0);
                                         classicBurgerSpinner.setValue(0);
                                         bottomlessIcedTeaSpinner.setValue(0);
                                         largeIcedTeaSpinner.setValue(0);
@@ -2027,9 +2028,10 @@ public class Cashier extends javax.swing.JFrame {
                 }
                 dialog.dispose();
             }
+            
 
         }).start();
-
+        
         dialog.setVisible(true);
     }//GEN-LAST:event_voidOrderActionPerformed
 
