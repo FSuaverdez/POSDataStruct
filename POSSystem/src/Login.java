@@ -1,7 +1,9 @@
 
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.util.function.Supplier;
 import javax.swing.JDesktopPane;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 /*
@@ -49,6 +51,7 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login SuaBurgers");
+        setAlwaysOnTop(true);
         setBackground(new java.awt.Color(0, 0, 0));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setLocation(new java.awt.Point(0, 0));
@@ -183,7 +186,7 @@ public class Login extends javax.swing.JFrame {
             new Cashier().setVisible(true);
             this.dispose();
         } else {
-            JOptionPane.showMessageDialog(null, "INVALID USERNAME/PASSWORD");
+            JOptionPane.showMessageDialog(((Supplier<JDialog>) () -> {final JDialog dialog = new JDialog(); dialog.setAlwaysOnTop(true); return dialog;}).get(), "INVALID USERNAME/PASSWORD");
         }
     }//GEN-LAST:event_jPanel4MouseClicked
 
@@ -197,7 +200,7 @@ public class Login extends javax.swing.JFrame {
             new Cashier().setVisible(true);
             this.dispose();
         } else {
-            JOptionPane.showMessageDialog(null, "INVALID USERNAME/PASSWORD");
+            JOptionPane.showMessageDialog(((Supplier<JDialog>) () -> {final JDialog dialog = new JDialog(); dialog.setAlwaysOnTop(true); return dialog;}).get(), "INVALID USERNAME/PASSWORD");
         }
         }
         
@@ -213,7 +216,8 @@ public class Login extends javax.swing.JFrame {
             new Cashier().setVisible(true);
             this.dispose();
         } else {
-            JOptionPane.showMessageDialog(null, "INVALID USERNAME/PASSWORD");
+            JOptionPane.showMessageDialog(((Supplier<JDialog>) () -> {final JDialog dialog = new JDialog(); dialog.setAlwaysOnTop(true); return dialog;}).get(), "INVALID USERNAME/PASSWORD");
+
         }
         }
     }//GEN-LAST:event_usernameKeyPressed
