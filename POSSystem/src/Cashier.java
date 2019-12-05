@@ -58,7 +58,8 @@ public class Cashier extends javax.swing.JFrame {
         list.insert("D5", "Bottomless Iced Tea", 400005, 70.00);
 
     }
-        private void setIcon() {
+
+    private void setIcon() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("favicon.png")));
     }
     //declaring some values to be used to collect data and do calculations and also for conditional statements
@@ -66,7 +67,7 @@ public class Cashier extends javax.swing.JFrame {
     boolean order = false;
     double discount;
     boolean pending = false;
-    boolean paid = true;
+    boolean paid = false;
     boolean disc = false;
     LinkedList list = new LinkedList();
     double totalPrice = 0;
@@ -232,7 +233,7 @@ public class Cashier extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         changeTextField = new javax.swing.JTextField();
         calculateButton = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        payOrder = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
         discountComboBox = new javax.swing.JComboBox<>();
         manualOrderIDCode = new javax.swing.JTextField();
@@ -241,7 +242,7 @@ public class Cashier extends javax.swing.JFrame {
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        printReceipt = new javax.swing.JButton();
         voidOrder = new javax.swing.JButton();
         lastName = new javax.swing.JTextField();
         firstName = new javax.swing.JTextField();
@@ -1129,22 +1130,22 @@ public class Cashier extends javax.swing.JFrame {
         });
         jPanel1.add(calculateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 130, 200, 70));
 
-        jButton4.setBackground(new java.awt.Color(0, 204, 0));
-        jButton4.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
-        jButton4.setText("PAY");
-        jButton4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 5));
-        jButton4.setPreferredSize(new java.awt.Dimension(107, 23));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        payOrder.setBackground(new java.awt.Color(0, 204, 0));
+        payOrder.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
+        payOrder.setText("PAY");
+        payOrder.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 5));
+        payOrder.setPreferredSize(new java.awt.Dimension(107, 23));
+        payOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                payOrderActionPerformed(evt);
             }
         });
-        jButton4.addKeyListener(new java.awt.event.KeyAdapter() {
+        payOrder.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jButton4KeyPressed(evt);
+                payOrderKeyPressed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 210, 200, 70));
+        jPanel1.add(payOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 210, 200, 70));
 
         jLabel23.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
@@ -1201,17 +1202,17 @@ public class Cashier extends javax.swing.JFrame {
         });
         jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 90, 90, 30));
 
-        jButton6.setBackground(new java.awt.Color(0, 0, 0));
-        jButton6.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("PRINT RECEIPT");
-        jButton6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 4));
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        printReceipt.setBackground(new java.awt.Color(0, 0, 0));
+        printReceipt.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        printReceipt.setForeground(new java.awt.Color(255, 255, 255));
+        printReceipt.setText("PRINT RECEIPT");
+        printReceipt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 4));
+        printReceipt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                printReceiptActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 660, 140, 40));
+        jPanel1.add(printReceipt, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 660, 140, 40));
 
         voidOrder.setBackground(new java.awt.Color(255, 0, 0));
         voidOrder.setFont(new java.awt.Font("Bahnschrift", 1, 32)); // NOI18N
@@ -1342,17 +1343,19 @@ public class Cashier extends javax.swing.JFrame {
     private void calculateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateButtonActionPerformed
         // TODO add your handling code here:
         changeTextField.setText("");
-        
-        
-            totalPrice = totalPrice + classicBurgerPrice + chickenBurgerPrice + cheeseBurgerPrice + veggieBurgerPrice + doublePattyBurgerPrice + triplePattyBurgerPrice + eggBaconBurgerPrice + supremeBurgerPrice;
-            totalPrice = totalPrice + classicFriesPrice + chunkyFriesPrice + shoestringFriesPrice + sweetpotatoFriesPrice;
-            totalPrice = totalPrice + burgerSteakPrice + burgerSteak2Price + burgSteakCMPrice + burgSteak2CMPrice;
-            totalPrice = totalPrice + regularCokePrice + largeCokePrice + regularIcedTeaPrice + largeIcedTeaPrice + bottomlessIcedTeaPrice;
-            calculateDisc();
+        if(pending == false){
+                        totalPrice = totalPrice + classicBurgerPrice + chickenBurgerPrice + cheeseBurgerPrice + veggieBurgerPrice + doublePattyBurgerPrice + triplePattyBurgerPrice + eggBaconBurgerPrice + supremeBurgerPrice;
+        totalPrice = totalPrice + classicFriesPrice + chunkyFriesPrice + shoestringFriesPrice + sweetpotatoFriesPrice;
+        totalPrice = totalPrice + burgerSteakPrice + burgerSteak2Price + burgSteakCMPrice + burgSteak2CMPrice;
+        totalPrice = totalPrice + regularCokePrice + largeCokePrice + regularIcedTeaPrice + largeIcedTeaPrice + bottomlessIcedTeaPrice;
+        }
+
+        calculateDisc();
         if (totalPrice == 0) {
             pending = false;
         } else if (pending == false) {
             pending = true;
+
             if (clear == true) {
                 receiptArea.setText(receipt);
                 changeTextField.setText("");
@@ -1380,6 +1383,7 @@ public class Cashier extends javax.swing.JFrame {
             String regularIcedTeaReceipt;
             String largeIcedTeaReceipt;
             String bottomlessIcedTeaReceipt;
+
 
             //receiptArea.setText("**************************************************\n");
             //receiptArea.setText(receiptArea.getText() + "*                          SUABURGERS                          *\n");
@@ -1517,7 +1521,11 @@ public class Cashier extends javax.swing.JFrame {
 
         } else {
             if (totalPrice > 0) {
-                JOptionPane.showMessageDialog(((Supplier<JDialog>) () -> {final JDialog dialog = new JDialog(); dialog.setAlwaysOnTop(true); return dialog;}).get(),  "There is a pending Order!\nUse Manual Order to add more!");
+                JOptionPane.showMessageDialog(((Supplier<JDialog>) () -> {
+                    final JDialog dialog = new JDialog();
+                    dialog.setAlwaysOnTop(true);
+                    return dialog;
+                }).get(), "There is a pending Order!\nUse Manual Order to add more!");
             } else {
                 pending = false;
             }
@@ -1533,7 +1541,7 @@ public class Cashier extends javax.swing.JFrame {
     // this pay button will check all the conditions like if there is a name entered by the cashier or
     // if the ammount entered is not enough for the total order price
     // this will also print the total ammount and total change in the receipt
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void payOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payOrderActionPerformed
         // TODO add your handling code here:
         double pay = 0;
 
@@ -1544,7 +1552,11 @@ public class Cashier extends javax.swing.JFrame {
         if (checkName()) {
             if (pending != false) {
                 if ((discount > pay && disc == true) || (totalPrice > pay && disc != true)) {
-                    JOptionPane.showMessageDialog(((Supplier<JDialog>) () -> {final JDialog dialog = new JDialog(); dialog.setAlwaysOnTop(true); return dialog;}).get(),  "ERROR: Ammount Paid is less than Total Price\nPlease Try again with the right ammount.");
+                    JOptionPane.showMessageDialog(((Supplier<JDialog>) () -> {
+                        final JDialog dialog = new JDialog();
+                        dialog.setAlwaysOnTop(true);
+                        return dialog;
+                    }).get(), "ERROR: Ammount Paid is less than Total Price\nPlease Try again with the right ammount.");
                 } else {
                     paid = true;
                     pending = false;
@@ -1580,21 +1592,18 @@ public class Cashier extends javax.swing.JFrame {
                     receiptArea.setText(receiptArea.getText() + "\nDATE ISSUED: " + java.time.LocalDate.now());
                     receiptArea.setText(receiptArea.getText() + "\nVALID UNTIL: " + "2024-12-06");
                     receiptArea.setText(receiptArea.getText() + "\nCASHIER: " + firstName.getText() + " " + lastName.getText());
-                    receiptArea.setText(receiptArea.getText() + "\nRECEIPT # " + getRandom(10000000, 99999999));     
+                    receiptArea.setText(receiptArea.getText() + "\nRECEIPT # " + getRandom(10000000, 99999999));
                     receiptArea.setText(receiptArea.getText() + "\n\n\t " + "THANK YOU!!!!!!");
                     try {
                         File file = new File("ReceiptRecords.txt");
-                            try
-                            {
-                                String filename= "ReceiptRecords.txt";
-                                FileWriter fw = new FileWriter(filename,true); //the true will append the new data
-                                fw.write(receiptArea.getText() + "\n\n\n\n\n\n------------------------------------------------------------------------\n");//appends the string to the file
-                                fw.close();
-                            }
-                            catch(IOException ioe)
-                            {
-                               
-                            }
+                        try {
+                            String filename = "ReceiptRecords.txt";
+                            FileWriter fw = new FileWriter(filename, true);
+                            fw.write(receiptArea.getText() + "\n\n\n\n\n\n------------------------------------------------------------------------\n");
+                            fw.close();
+                        } catch (IOException ioe) {
+
+                        }
                     } catch (Exception e) {
                     }
                     disc = false;
@@ -1625,20 +1634,28 @@ public class Cashier extends javax.swing.JFrame {
                     ammountPaid.setText("");
                 }
             } else {
-                JOptionPane.showMessageDialog(((Supplier<JDialog>) () -> {final JDialog dialog = new JDialog(); dialog.setAlwaysOnTop(true); return dialog;}).get(), "There is no pending Order!");
+                JOptionPane.showMessageDialog(((Supplier<JDialog>) () -> {
+                    final JDialog dialog = new JDialog();
+                    dialog.setAlwaysOnTop(true);
+                    return dialog;
+                }).get(), "There is no pending Order!");
 
             }
         } else {
-            JOptionPane.showMessageDialog(((Supplier<JDialog>) () -> {final JDialog dialog = new JDialog(); dialog.setAlwaysOnTop(true); return dialog;}).get(), "Please Enter your name!");
+            JOptionPane.showMessageDialog(((Supplier<JDialog>) () -> {
+                final JDialog dialog = new JDialog();
+                dialog.setAlwaysOnTop(true);
+                return dialog;
+            }).get(), "Please Enter your name!");
 
         }
 
 
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_payOrderActionPerformed
 
-    private void jButton4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton4KeyPressed
+    private void payOrderKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_payOrderKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4KeyPressed
+    }//GEN-LAST:event_payOrderKeyPressed
 
     private void cheeseBurgerSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_cheeseBurgerSpinnerStateChanged
         // TODO add your handling code here:
@@ -1787,22 +1804,22 @@ public class Cashier extends javax.swing.JFrame {
             BinaryTree listtree = new BinaryTree();
             clear = false;
             listtree.insert("RC01", "Burger Steak*" + manualOrderSpinner.getValue() + "    \t\t", 300001, 50.00);
-            listtree.insert("RC02", "2pc Burger Steak*" + manualOrderSpinner.getValue()+"\t\t", 300002, 80.00);
+            listtree.insert("RC02", "2pc Burger Steak*" + manualOrderSpinner.getValue() + "\t\t", 300002, 80.00);
             listtree.insert("B01", "Classic Burger*" + manualOrderSpinner.getValue() + "\t\t", 100001, 50.00);
-            listtree.insert("B02", "Cheese Burger*" + manualOrderSpinner.getValue()+"\t\t", 100002, 60.00);
+            listtree.insert("B02", "Cheese Burger*" + manualOrderSpinner.getValue() + "\t\t", 100002, 60.00);
             listtree.insert("B03", "Double Patty Burger*" + manualOrderSpinner.getValue() + "\t\t", 100003, 120.00);
             listtree.insert("B04", "Triple Patty Burger*" + manualOrderSpinner.getValue() + "\t\t", 100004, 180.00);
             listtree.insert("B05", "Chicken Burger*" + manualOrderSpinner.getValue() + "    \t\t", 100005, 50.00);
             listtree.insert("B06", "Veggie Burger*" + manualOrderSpinner.getValue() + "\t\t", 100006, 50.00);
-            listtree.insert("B07", "Egg n' Bacon Burger*" + manualOrderSpinner.getValue() +"\t\t", 100007, 60.00);
-            listtree.insert("B08", "Supreme Burger*" + manualOrderSpinner.getValue()+"\t\t", 100008, 60.00);
+            listtree.insert("B07", "Egg n' Bacon Burger*" + manualOrderSpinner.getValue() + "\t\t", 100007, 60.00);
+            listtree.insert("B08", "Supreme Burger*" + manualOrderSpinner.getValue() + "\t\t", 100008, 60.00);
             listtree.insert("F01", "Classic Fries*" + manualOrderSpinner.getValue() + "    \t\t", 200001, 30.00);
             listtree.insert("F02", "Chunky Fries*" + manualOrderSpinner.getValue() + "    \t\t", 200002, 40.00);
-            listtree.insert("F03", "ShoeString Fries*" + manualOrderSpinner.getValue()+ "\t\t", 200003, 40.00);
+            listtree.insert("F03", "ShoeString Fries*" + manualOrderSpinner.getValue() + "\t\t", 200003, 40.00);
             listtree.insert("F04", "Sweet Potato Fries*" + manualOrderSpinner.getValue() + "\t\t", 200004, 40.00);
-            listtree.insert("CRC01", "BurgSteak Combo Meal*" + manualOrderSpinner.getValue() +"\t\t", 300003, 100.00);
+            listtree.insert("CRC01", "BurgSteak Combo Meal*" + manualOrderSpinner.getValue() + "\t\t", 300003, 100.00);
             listtree.insert("CRC02", "2pc BurgSteak Combo Meal*" + manualOrderSpinner.getValue() + "       \t", 300004, 160.00);
-            listtree.insert("D1", "Regular Coke*" + manualOrderSpinner.getValue() + "   \t\t" , 400001, 20.00);
+            listtree.insert("D1", "Regular Coke*" + manualOrderSpinner.getValue() + "   \t\t", 400001, 20.00);
             listtree.insert("D2", "Large Coke*" + manualOrderSpinner.getValue() + "\t\t\t", 400002, 70.00);
             listtree.insert("D3", "Regular Iced Tea*" + manualOrderSpinner.getValue() + "\t\t", 400003, 40.00);
             listtree.insert("D4", "Large Iced Tea*" + manualOrderSpinner.getValue() + "  \t\t", 400004, 70.00);
@@ -1856,7 +1873,11 @@ public class Cashier extends javax.swing.JFrame {
             manualOrderIDCode.setText("");
             manualOrderSpinner.setValue(0);
         } else {
-            JOptionPane.showMessageDialog(((Supplier<JDialog>) () -> {final JDialog dialog = new JDialog(); dialog.setAlwaysOnTop(true); return dialog;}).get(), "Use Manual Order only if there is a pending order\nand you want to add more orders.");
+            JOptionPane.showMessageDialog(((Supplier<JDialog>) () -> {
+                final JDialog dialog = new JDialog();
+                dialog.setAlwaysOnTop(true);
+                return dialog;
+            }).get(), "Use Manual Order only if there is a pending order\nand you want to add more orders.");
             manualOrderIDCode.setText("");
             manualOrderSpinner.setValue(0);
         }
@@ -1888,11 +1909,13 @@ public class Cashier extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_discountComboBoxItemStateChanged
     // this function will print the receipt unless there are pending orders
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void printReceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printReceiptActionPerformed
         if (paid == true) {
             try {
                 // TODO add your handling code here:
+                setAlwaysOnTop(false);
                 receiptArea.print();
+                setAlwaysOnTop(true);
             } catch (PrinterException ex) {
                 Logger.getLogger(Cashier.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1900,11 +1923,24 @@ public class Cashier extends javax.swing.JFrame {
             changeTextField.setText("");
             paid = false;
         } else {
-                        JOptionPane.showMessageDialog(((Supplier<JDialog>) () -> {final JDialog dialog = new JDialog(); dialog.setAlwaysOnTop(true); return dialog;}).get(), "The pending order is not yet paid!");
+            if(pending==false){
+                JOptionPane.showMessageDialog(((Supplier<JDialog>) () -> {
+                final JDialog dialog = new JDialog();
+                dialog.setAlwaysOnTop(true);
+                return dialog;
+            }).get(), "There are no pending orders!");
+            }else{
+                JOptionPane.showMessageDialog(((Supplier<JDialog>) () -> {
+                final JDialog dialog = new JDialog();
+                dialog.setAlwaysOnTop(true);
+                return dialog;
+            }).get(), "The pending order is not yet paid!");
+            }
+            
         }
 
 
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_printReceiptActionPerformed
     // this function will search for new drive inserted to the system
     // once found it will try to find a program named "suaburgers.txt"
     // it will compare the text inside the file to the saved text inside the system
@@ -1920,7 +1956,6 @@ public class Cashier extends javax.swing.JFrame {
 
         dialog.setSize(400, 170);
         dialog.setLocationRelativeTo(null);
-        // Set a 2 second timer
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -1932,25 +1967,17 @@ public class Cashier extends javax.swing.JFrame {
                     boolean stop = false;
                     int j = 15;
                     jop.setMessage("Insert Flash Drive that contains void key.\nExiting in " + j + " seconds.\nClick OK to stop.");
-                    
-                    // init the file objects and the initial drive state
+
                     for (int i = 0; i < letters.length; ++i) {
                         drives[i] = new File(letters[i] + ":/");
 
                         isDrive[i] = drives[i].canRead();
                     }
-
-                    // loop indefinitely
                     while (!stop) {
-
-                        // check each drive 
                         for (int i = 0; i < letters.length; ++i) {
                             boolean pluggedIn = drives[i].canRead();
-
-                            // if the state has changed output a message
                             if (pluggedIn != isDrive[i]) {
                                 if (pluggedIn) {
-
                                     FileReader file = new FileReader(letters[i] + ":/suaburgers.txt");
                                     BufferedReader reader = new BufferedReader(file);
                                     String line = reader.readLine();
@@ -2001,22 +2028,20 @@ public class Cashier extends javax.swing.JFrame {
                                 isDrive[i] = pluggedIn;
                             }
                         }
-
-                        // wait before looping
                         try {
-                            if(stop!=true){
+                            if (stop != true) {
                                 Thread.sleep(1000);
                                 j--;
                                 jop.setMessage("Insert Flash Drive that contains void key.\nExiting in " + j + " seconds.\nClick OK to stop.");
                             }
 
                         } catch (InterruptedException e) {
-                            /* do nothing */ }
+                        }
                         if (j == 0) {
                             stop = true;
                         }
-                        if(!jop.isShowing()){
-                            stop=true;
+                        if (!jop.isShowing()) {
+                            stop = true;
 
                         }
                     }
@@ -2025,10 +2050,9 @@ public class Cashier extends javax.swing.JFrame {
                 }
                 dialog.dispose();
             }
-            
 
         }).start();
-        
+
         dialog.setVisible(true);
     }//GEN-LAST:event_voidOrderActionPerformed
 
@@ -2122,10 +2146,11 @@ public class Cashier extends javax.swing.JFrame {
     }
 //this will calculate the discount for the orders
 
-public static int getRandom(int min, int max){
-    int x = (int) ((Math.random()*((max-min)+1))+min);
-    return x;
-}
+    public static int getRandom(int min, int max) {
+        int x = (int) ((Math.random() * ((max - min) + 1)) + min);
+        return x;
+    }
+
     void calculateDisc() {
         discount = totalPrice;
         if (discountComboBox.getSelectedIndex() == 1 || discountComboBox.getSelectedIndex() == 2) {
@@ -2184,9 +2209,7 @@ public static int getRandom(int min, int max){
     private javax.swing.JTextField firstName;
     private javax.swing.JPanel friesPane;
     private javax.swing.JScrollPane friesScrollPane;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2278,6 +2301,8 @@ public static int getRandom(int min, int max){
     private javax.swing.JPanel logOutButton;
     private javax.swing.JTextField manualOrderIDCode;
     private javax.swing.JSpinner manualOrderSpinner;
+    private javax.swing.JButton payOrder;
+    private javax.swing.JButton printReceipt;
     private javax.swing.JTextArea receiptArea;
     private javax.swing.JSpinner regularCokeSpinner;
     private javax.swing.JSpinner regularIcedTeaSpinner;
