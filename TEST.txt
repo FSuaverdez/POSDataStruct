@@ -1,2 +1,6 @@
 Changed # 1
+<<<<<<< HEAD
 Hello World
+=======
+Changed # 2
+>>>>>>> 2fc89214adcc6aeae3ac4b3124e0e219633043d3
